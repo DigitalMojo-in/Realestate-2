@@ -302,7 +302,7 @@
 /* Mobile-specific optimizations */
 @media (max-width: 768px) {
   .luxury-parallax {
-    background-attachment: scroll; /* Fixed backgrounds can cause performance issues on mobile */
+    background-attachment: scroll;
   }
   
   /* Reduce animation intensity on mobile for better performance */
@@ -340,36 +340,31 @@
     transition: transform 0.2s ease;
   }
   
-  /* Ensure cards don't get too small on mobile */
-  .grid-cols-2 > * {
-    min-height: 120px;
-  }
-  
-  /* Better spacing for mobile */
+  /* Mobile container improvements */
   .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
   
   /* Add bottom padding to prevent content being hidden behind sticky CTA */
   body {
-    padding-bottom: 120px; /* Increased for vertical CTA layout */
-  }
-  
-  @media (min-width: 768px) {
-    body {
-      padding-bottom: 0; /* Remove padding on desktop */
-    }
+    padding-bottom: 70px; /* Adjusted for simplified CTA layout */
   }
   
   /* Mobile-optimized text sizes */
   h1 {
-    font-size: clamp(2rem, 8vw, 4rem);
+    font-size: clamp(1.75rem, 7vw, 3.5rem);
     line-height: 1.2;
   }
   
   h2 {
-    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    font-size: clamp(1.25rem, 5vw, 2.25rem);
+    line-height: 1.3;
+  }
+  
+  h3 {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    line-height: 1.4;
   }
   
   /* Mobile carousel improvements */
@@ -382,6 +377,36 @@
   .carousel-item {
     scroll-snap-align: center;
     flex-shrink: 0;
+  }
+  
+  /* Mobile grid optimizations */
+  .grid-cols-2 > * {
+    min-height: 100px;
+  }
+  
+  /* Better mobile spacing */
+  .py-16 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .py-12 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .py-8 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  /* Mobile button optimizations */
+  .text-sm {
+    font-size: 0.75rem;
+  }
+  
+  .text-xs {
+    font-size: 0.625rem;
   }
   
   /* Mobile-optimized animations */
@@ -409,5 +434,11 @@
       transition: opacity 0.3s ease;
       transform: none;
     }
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-bottom: 0;
   }
 }

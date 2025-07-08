@@ -55,12 +55,12 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="flex flex-col space-y-8 lg:grid lg:grid-cols-2 lg:gap-12 lg:space-y-0">
           {/* Image Gallery */}
           <div className="scroll-animate-left stagger-delay-1">
-            <h3 className="font-montserrat text-xl font-semibold mb-4">Premium Interiors</h3>
+            <h3 className="font-montserrat text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Premium Interiors</h3>
             <Card className="overflow-hidden shadow-luxury transform transition-all duration-500 hover:scale-105">
-              <div className="relative h-80 md:h-96">
+              <div className="relative h-64 sm:h-80 md:h-96">
                 <img 
                   src={images[currentImage].src} 
                   alt={images[currentImage].title}
@@ -70,32 +70,32 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
                 {/* Navigation */}
                 <button
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-300 hover:scale-110"
+                  className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-1.5 sm:p-2 transition-all duration-300 hover:scale-110"
                 >
-                  <ChevronLeft className="w-5 h-5" />
+                  <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-300 hover:scale-110"
+                  className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-1.5 sm:p-2 transition-all duration-300 hover:scale-110"
                 >
-                  <ChevronRight className="w-5 h-5" />
+                  <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
 
                 {/* Image Info */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <h4 className="text-white font-semibold">{images[currentImage].title}</h4>
-                  <p className="text-white/80 text-sm">{images[currentImage].description}</p>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 sm:p-4">
+                  <h4 className="text-white font-semibold text-sm sm:text-base">{images[currentImage].title}</h4>
+                  <p className="text-white/80 text-xs sm:text-sm">{images[currentImage].description}</p>
                 </div>
               </div>
             </Card>
 
             {/* Thumbnails */}
-            <div className="flex space-x-2 mt-4">
+            <div className="flex space-x-1.5 sm:space-x-2 mt-3 sm:mt-4 overflow-x-auto pb-2">
               {images.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentImage(index)}
-                  className={`w-20 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 hover:scale-105 ${
+                  className={`flex-shrink-0 w-16 h-12 sm:w-20 sm:h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 hover:scale-105 ${
                     index === currentImage ? 'border-luxury-gold shadow-accent' : 'border-transparent hover:border-luxury-gold/50'
                   }`}
                 >
@@ -107,34 +107,34 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
 
           {/* Floor Plans */}
           <div className="scroll-animate-right stagger-delay-2">
-            <h3 className="font-montserrat text-xl font-semibold mb-4">Floor Plans</h3>
+            <h3 className="font-montserrat text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Floor Plans</h3>
             
             <Tabs defaultValue="2bhk" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 h-12 mb-4">
-                <TabsTrigger value="2bhk" className="text-sm font-semibold">2 BHK</TabsTrigger>
-                <TabsTrigger value="3bhk" className="text-sm font-semibold">3 BHK</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-2 h-10 sm:h-12 mb-3 sm:mb-4">
+                <TabsTrigger value="2bhk" className="text-xs sm:text-sm font-semibold px-2">2 BHK</TabsTrigger>
+                <TabsTrigger value="3bhk" className="text-xs sm:text-sm font-semibold px-2">3 BHK</TabsTrigger>
               </TabsList>
               
               {Object.entries(floorPlans).map(([key, plan]) => (
                 <TabsContent key={key} value={key}>
-                  <Card className="p-6 shadow-card transform transition-all duration-500 hover:shadow-luxury">
-                    <h4 className="font-montserrat text-lg font-semibold mb-2">{plan.title}</h4>
-                    <p className="text-luxury-gold font-medium mb-4">{plan.area}</p>
+                  <Card className="p-3 sm:p-4 lg:p-6 shadow-card transform transition-all duration-500 hover:shadow-luxury">
+                    <h4 className="font-montserrat text-base sm:text-lg font-semibold mb-1.5 sm:mb-2">{plan.title}</h4>
+                    <p className="text-luxury-gold font-medium mb-3 sm:mb-4 text-sm sm:text-base">{plan.area}</p>
                     
                     {/* Floor Plan Preview */}
-                    <div className="h-48 bg-luxury-cream rounded-lg mb-4 flex items-center justify-center group transition-all duration-300 hover:bg-luxury-gold/10">
+                    <div className="h-32 sm:h-40 lg:h-48 bg-luxury-cream rounded-lg mb-3 sm:mb-4 flex items-center justify-center group transition-all duration-300 hover:bg-luxury-gold/10">
                       <div className="text-center">
-                        <Building2 className="w-12 h-12 text-luxury-gold mx-auto mb-2 transition-transform duration-300 group-hover:scale-110" />
-                        <p className="text-muted-foreground">Floor Plan Preview</p>
+                        <Building2 className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-luxury-gold mx-auto mb-1 sm:mb-2 transition-transform duration-300 group-hover:scale-110" />
+                        <p className="text-muted-foreground text-xs sm:text-sm">Floor Plan Preview</p>
                       </div>
                     </div>
                     
                     {/* Features */}
-                    <div className="grid grid-cols-2 gap-2 mb-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 mb-4 sm:mb-6">
                       {plan.features.map((feature, index) => (
                         <div key={index} className="flex items-center space-x-2 group">
-                          <div className="w-2 h-2 bg-luxury-gold rounded-full transition-transform duration-300 group-hover:scale-150"></div>
-                          <span className="text-sm">{feature}</span>
+                          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-luxury-gold rounded-full transition-transform duration-300 group-hover:scale-150 flex-shrink-0"></div>
+                          <span className="text-xs sm:text-sm">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -142,10 +142,10 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
                     <Button 
                       variant="cta" 
                       size="lg" 
-                      className="w-full transform transition-all duration-300 hover:scale-105"
+                      className="w-full transform transition-all duration-300 hover:scale-105 text-xs sm:text-sm h-10 sm:h-12"
                       onClick={onLeadFormOpen}
                     >
-                      <Download className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:rotate-12" />
+                      <Download className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2 transition-transform duration-300 group-hover:rotate-12" />
                       Get Floor Plan PDF
                     </Button>
                   </Card>
