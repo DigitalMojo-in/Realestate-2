@@ -104,17 +104,31 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
                     <h4 className="font-montserrat text-lg font-semibold mb-2 text-white">{plan.title}</h4>
                     <p className="text-luxury-gold font-medium mb-4 text-base">{plan.area}</p>
 
-                    <div className="h-40 bg-gradient-to-br from-luxury-cream to-luxury-silver/30 rounded-lg mb-4 flex items-center justify-center border border-luxury-silver/50">
-                      <div className="text-center">
-                        <div className="w-20 h-16 mx-auto mb-2 bg-white rounded-md border border-luxury-silver/30 flex items-center justify-center">
-                          <div className="grid grid-cols-2 gap-1 w-10 h-8">
-                            <div className="bg-luxury-gold/60 rounded-sm"></div>
-                            <div className="bg-luxury-charcoal/40 rounded-sm"></div>
-                            <div className="bg-luxury-charcoal/40 rounded-sm"></div>
-                            <div className="bg-luxury-gold/60 rounded-sm"></div>
+                    <div className="h-32 md:h-40 bg-white rounded-lg mb-4 flex items-center justify-center border border-luxury-silver/30 relative overflow-hidden">
+                      <div className="w-full h-full p-4 relative">
+                        {/* Floor Plan Layout */}
+                        <div className="w-full h-full relative">
+                          {/* Main Layout Grid */}
+                          <div className="absolute inset-2 border-2 border-luxury-charcoal/20 rounded-md">
+                            {/* Rooms */}
+                            <div className="absolute top-1 left-1 w-8 h-6 border border-luxury-charcoal/30 bg-luxury-gold/10 rounded-sm"></div>
+                            <div className="absolute top-1 right-1 w-8 h-6 border border-luxury-charcoal/30 bg-luxury-gold/10 rounded-sm"></div>
+                            <div className="absolute bottom-1 left-1 w-12 h-8 border border-luxury-charcoal/30 bg-luxury-charcoal/5 rounded-sm"></div>
+                            <div className="absolute bottom-1 right-1 w-6 h-8 border border-luxury-charcoal/30 bg-luxury-charcoal/5 rounded-sm"></div>
+                            
+                            {/* Hallway */}
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-2 border border-luxury-charcoal/20"></div>
+                            
+                            {/* Door indicators */}
+                            <div className="absolute top-0 left-1/2 w-3 h-0.5 bg-luxury-gold"></div>
+                            <div className="absolute bottom-0 right-1/3 w-2 h-0.5 bg-luxury-gold"></div>
+                          </div>
+                          
+                          {/* Labels */}
+                          <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2">
+                            <p className="text-xs text-luxury-charcoal/60 font-medium">Floor Plan Layout</p>
                           </div>
                         </div>
-                        <p className="text-muted-foreground text-sm font-medium">Floor Plan Preview</p>
                       </div>
                     </div>
 
