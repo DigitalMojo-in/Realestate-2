@@ -1,7 +1,10 @@
 import { Card } from "@/components/ui/card";
 import { CheckCircle, Building2, Car, Waves, MapPin, Shield, Zap, Users } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const ProjectHighlights = () => {
+  const sectionRef = useScrollAnimation();
+  
   const highlights = [
     {
       icon: CheckCircle,
@@ -54,13 +57,13 @@ const ProjectHighlights = () => {
   ];
 
   return (
-    <section className="py-16 bg-background">
+    <section ref={sectionRef} className="py-16 bg-background scroll-animate">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-4 animate-fade-in-up">
+          <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-4">
             Premium <span className="text-luxury-gold">Features</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Experience luxury living with world-class amenities designed for your comfort and convenience
           </p>
         </div>
@@ -71,11 +74,10 @@ const ProjectHighlights = () => {
             return (
               <Card 
                 key={index}
-                className="p-6 text-center hover:shadow-luxury transition-all duration-500 hover:scale-105 animate-scale-in group border-luxury-silver/30"
-                style={{animationDelay: `${index * 0.1}s`}}
+                className={`p-6 text-center hover:shadow-luxury transition-all duration-500 hover:scale-110 group border-luxury-silver/30 scroll-animate-scale stagger-delay-${Math.min(index + 1, 6)}`}
               >
-                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 transition-all duration-300 group-hover:scale-110 ${highlight.color} bg-current/10`}>
-                  <IconComponent className={`w-8 h-8 ${highlight.color}`} />
+                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 transition-all duration-300 group-hover:scale-110 group-hover:animate-pulse ${highlight.color} bg-current/10`}>
+                  <IconComponent className={`w-8 h-8 ${highlight.color} transition-transform duration-300 group-hover:scale-125`} />
                 </div>
                 <h3 className="font-montserrat font-semibold mb-2 text-sm md:text-base text-luxury-charcoal">
                   {highlight.title}

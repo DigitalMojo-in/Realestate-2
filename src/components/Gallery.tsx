@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ChevronLeft, ChevronRight, Download, Building2 } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import gallery1 from '@/assets/gallery-1.jpg';
 import gallery2 from '@/assets/gallery-2.jpg';
 import gallery3 from '@/assets/gallery-3.jpg';
@@ -13,6 +14,7 @@ interface GalleryProps {
 
 const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
   const [currentImage, setCurrentImage] = useState(0);
+  const sectionRef = useScrollAnimation();
   
   const images = [
     { src: gallery1, title: "Master Bedroom", description: "Spacious bedroom with premium finishes" },
@@ -42,39 +44,39 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
   };
 
   return (
-    <section className="py-16 bg-background">
+    <section ref={sectionRef} className="py-16 bg-background scroll-animate">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-4 animate-fade-in-up">
+          <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-4">
             Gallery & <span className="text-luxury-gold">Floor Plans</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Explore our premium interiors and thoughtfully designed floor plans
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Image Gallery */}
-          <div className="animate-slide-in-right">
+          <div className="scroll-animate-left stagger-delay-1">
             <h3 className="font-montserrat text-xl font-semibold mb-4">Premium Interiors</h3>
-            <Card className="overflow-hidden shadow-luxury">
+            <Card className="overflow-hidden shadow-luxury transform transition-all duration-500 hover:scale-105">
               <div className="relative h-80 md:h-96">
                 <img 
                   src={images[currentImage].src} 
                   alt={images[currentImage].title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-all duration-700"
                 />
                 
                 {/* Navigation */}
                 <button
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-300"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-300 hover:scale-110"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-300"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all duration-300 hover:scale-110"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>
@@ -93,8 +95,8 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
                 <button
                   key={index}
                   onClick={() => setCurrentImage(index)}
-                  className={`w-20 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
-                    index === currentImage ? 'border-luxury-gold' : 'border-transparent'
+                  className={`w-20 h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 hover:scale-105 ${
+                    index === currentImage ? 'border-luxury-gold shadow-accent' : 'border-transparent hover:border-luxury-gold/50'
                   }`}
                 >
                   <img src={image.src} alt={image.title} className="w-full h-full object-cover" />
@@ -104,7 +106,7 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
           </div>
 
           {/* Floor Plans */}
-          <div className="animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+          <div className="scroll-animate-right stagger-delay-2">
             <h3 className="font-montserrat text-xl font-semibold mb-4">Floor Plans</h3>
             
             <Tabs defaultValue="2bhk" className="w-full">
@@ -115,14 +117,14 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
               
               {Object.entries(floorPlans).map(([key, plan]) => (
                 <TabsContent key={key} value={key}>
-                  <Card className="p-6 shadow-card">
+                  <Card className="p-6 shadow-card transform transition-all duration-500 hover:shadow-luxury">
                     <h4 className="font-montserrat text-lg font-semibold mb-2">{plan.title}</h4>
                     <p className="text-luxury-gold font-medium mb-4">{plan.area}</p>
                     
                     {/* Floor Plan Preview */}
-                    <div className="h-48 bg-luxury-cream rounded-lg mb-4 flex items-center justify-center">
+                    <div className="h-48 bg-luxury-cream rounded-lg mb-4 flex items-center justify-center group transition-all duration-300 hover:bg-luxury-gold/10">
                       <div className="text-center">
-                        <Building2 className="w-12 h-12 text-luxury-gold mx-auto mb-2" />
+                        <Building2 className="w-12 h-12 text-luxury-gold mx-auto mb-2 transition-transform duration-300 group-hover:scale-110" />
                         <p className="text-muted-foreground">Floor Plan Preview</p>
                       </div>
                     </div>
@@ -130,8 +132,8 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
                     {/* Features */}
                     <div className="grid grid-cols-2 gap-2 mb-6">
                       {plan.features.map((feature, index) => (
-                        <div key={index} className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-luxury-gold rounded-full"></div>
+                        <div key={index} className="flex items-center space-x-2 group">
+                          <div className="w-2 h-2 bg-luxury-gold rounded-full transition-transform duration-300 group-hover:scale-150"></div>
                           <span className="text-sm">{feature}</span>
                         </div>
                       ))}
@@ -140,10 +142,10 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
                     <Button 
                       variant="cta" 
                       size="lg" 
-                      className="w-full"
+                      className="w-full transform transition-all duration-300 hover:scale-105"
                       onClick={onLeadFormOpen}
                     >
-                      <Download className="w-4 h-4 mr-2" />
+                      <Download className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:rotate-12" />
                       Get Floor Plan PDF
                     </Button>
                   </Card>
