@@ -74,7 +74,7 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
             <h3 className="text-xl font-semibold mb-4">Floor Plans</h3>
             <Tabs defaultValue="2bhk">
               <TabsList className="flex gap-2 bg-gray-100 p-1 rounded-md mb-4">
-                <TabsTrigger value="2bhk" className="flex-1 py-2 px-4 rounded-md bg-grey-200 text-sm font-medium ">
+                <TabsTrigger value="2bhk" className="flex-1 py-2 px-4 rounded-md bg-grey-200 text-sm font-medium text-black">
                   2 BHK
                 </TabsTrigger>
                 <TabsTrigger value="3bhk" className="flex-1 py-2 px-4 rounded-md bg-white text-sm font-medium hover:bg-gray-200">
