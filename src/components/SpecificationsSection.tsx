@@ -108,7 +108,7 @@ const SpecificationsSection = () => {
           <div className="w-24 h-1 bg-luxury-gold mx-auto mt-6 rounded-full animate-fade-in-up" style={{animationDelay: '0.4s'}}></div>
         </div>
 
-        <div id="gallery" className="max-w-4xl mx-auto space-y-4">
+        <div className="max-w-4xl mx-auto space-y-4">
           {specifications.map((spec, index) => {
             const IconComponent = spec.icon;
             const isOpen = openSpecs.includes(spec.id);

@@ -42,7 +42,7 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
 
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Gallery */}
-          <div className="w-full lg:w-1/2">
+          <div id="gallery" className="w-full lg:w-1/2">
             <div className="relative overflow-hidden rounded-lg shadow-lg group">
               <img
                 src={images[current]}
