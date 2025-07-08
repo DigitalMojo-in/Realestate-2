@@ -15,7 +15,7 @@ const Header = ({ onLeadFormOpen }: HeaderProps) => {
     { label: 'Features', href: '#highlight' },
     { label: 'Specifications', href: '#specification' },
     { label: 'Gallery', href: '#gallery' },
-    { label: 'Location', href: '#specification' },
+    { label: 'Location', href: '#overview' },
     { label: 'Testimonials', href: '#testimonial' },
   ];
 

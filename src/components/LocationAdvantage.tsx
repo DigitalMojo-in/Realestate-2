@@ -38,7 +38,7 @@ const LocationAdvantage = () => {
           </div>
 
           {/* Location Details */}
-          <div className="space-y-4 animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+          <div id="gallery" className="space-y-4 animate-fade-in-up" style={{animationDelay: '0.3s'}}>
             <h3 className="font-montserrat text-2xl font-semibold mb-6">Nearby Landmarks</h3>
             
             {locations.map((location, index) => (
