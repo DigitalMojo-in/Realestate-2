@@ -23,7 +23,7 @@ const LocationAdvantage = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center animate-slide-in-left">
           {/* Map Placeholder */}
           <div className="animate-slide-in-right">
             <Card className="p-8 h-96 flex items-center justify-center bg-gradient-to-br from-luxury-silver/20 to-luxury-gold/10 shadow-card">

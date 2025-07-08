@@ -6,7 +6,7 @@ import ProjectHighlights from '@/components/ProjectHighlights';
 import LocationAdvantage from '@/components/LocationAdvantage';
 import Gallery from '@/components/Gallery';
 import VideoSection from '@/components/VideoSection';
-import VideoBackgroundSection from '@/components/VideoBackgroundSection';
+import PremiumShowcaseSection from '@/components/PremiumShowcaseSection';
 import SpecificationsSection from '@/components/SpecificationsSection';
 import Testimonials from '@/components/Testimonials';
 import WhyThisProject from '@/components/WhyThisProject';
@@ -42,8 +42,8 @@ const Index = () => {
       {/* Specifications Section */}
       <SpecificationsSection />
       
-      {/* Video Background Section */}
-      <VideoBackgroundSection onLeadFormOpen={openLeadForm} />
+      {/* Premium Showcase Section */}
+      <PremiumShowcaseSection onLeadFormOpen={openLeadForm} />
       
       {/* Video Walkthrough */}
       <VideoSection />
