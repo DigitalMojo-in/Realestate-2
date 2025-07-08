@@ -351,6 +351,11 @@
     padding-right: 1rem;
   }
   
+  /* Add bottom padding to prevent content being hidden behind sticky CTA */
+  body {
+    padding-bottom: 80px;
+  }
+  
   /* Mobile-optimized text sizes */
   h1 {
     font-size: clamp(2rem, 8vw, 4rem);
