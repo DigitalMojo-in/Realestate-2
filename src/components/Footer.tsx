@@ -69,7 +69,7 @@ const Footer = ({ onLeadFormOpen }: FooterProps) => {
                 variant="outline" 
                 size="sm"
                 onClick={onLeadFormOpen}
-                className="w-full justify-start text-white border-white/20 hover:bg-white/10"
+                className="w-full justify-start text-white bg-white/5 hover:bg-white/15 border border-white/20 rounded-lg transition-colors duration-200"
               >
                 Download Brochure
               </Button>
@@ -77,7 +77,7 @@ const Footer = ({ onLeadFormOpen }: FooterProps) => {
                 variant="outline" 
                 size="sm"
                 onClick={onLeadFormOpen}
-                className="w-full justify-start text-white border-white/20 hover:bg-white/10"
+                className="w-full justify-start text-white bg-white/5 hover:bg-white/15 border border-white/20 rounded-lg transition-colors duration-200"
               >
                 Get Floor Plans
               </Button>
@@ -85,7 +85,7 @@ const Footer = ({ onLeadFormOpen }: FooterProps) => {
                 variant="outline" 
                 size="sm"
                 onClick={onLeadFormOpen}
-                className="w-full justify-start text-white border-white/20 hover:bg-white/10"
+                className="w-full justify-start text-white bg-white/5 hover:bg-white/15 border border-white/20 rounded-lg transition-colors duration-200"
               >
                 Check Availability
               </Button>
