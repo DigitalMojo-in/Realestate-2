@@ -29,50 +29,52 @@ const HeroSection = ({ onLeadFormOpen }: HeroSectionProps) => {
   };
 
   return (
-    <section className="relative h-[85vh] w-full overflow-hidden mt-16">
+    <section className="relative h-[80vh] w-full overflow-hidden mt-16">
       {/* Image Slider */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-1 z-10">
-  {images.map((_, index) => (
-    <button
-      key={index}
-      onClick={() => setCurrentSlide(index)}
-      className={`w-1.5 h-1.5 rounded-full transition-all duration-300 
-        ${index === currentSlide 
-          ? 'bg-luxury-gold scale-100' 
-          : 'bg-white/30 hover:bg-white/50 scale-90'}`}
-    />
-  ))}
-</div>
+      <div className="absolute inset-0">
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img
+              src={image}
+              alt={`Luxury apartment view ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
+          </div>
         ))}
       </div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30" />
+      <div className="absolute inset-0 hero-gradient z-10" />
 
       {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
-        className="absolute left-2 top-1/2 -translate-y-1/2 p-1 z-20 hover:scale-105 transition-all"
+        className="absolute left-2 top-1/2 -translate-y-1/2 bg-transparent hover:bg-white/10 backdrop-blur-sm rounded-full p-1 z-20"
       >
-        <ChevronLeft className="w-3 h-3 text-white/80" />
+        <ChevronLeft className="w-4 h-4 text-white" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-2 top-1/2 -translate-y-1/2 p-1 z-20 hover:scale-105 transition-all"
+        className="absolute right-2 top-1/2 -translate-y-1/2 bg-transparent hover:bg-white/10 backdrop-blur-sm rounded-full p-1 z-20"
       >
-        <ChevronRight className="w-3 h-3 text-white/80" />
+        <ChevronRight className="w-4 h-4 text-white" />
       </button>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-1 z-10">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-1.5 z-20">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
             className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-              index === currentSlide 
-                ? 'bg-luxury-gold' 
-                : 'bg-white/30 hover:bg-white/50'
+              index === currentSlide
+                ? 'bg-luxury-gold shadow' 
+                : 'bg-white/30 hover:bg-white/60'
             }`}
           />
         ))}
@@ -80,28 +82,28 @@ const HeroSection = ({ onLeadFormOpen }: HeroSectionProps) => {
 
       {/* Content */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
-        <div className="text-center text-white px-4 max-w-3xl mx-auto animate-fade-in-up">
-          <h1 className="font-montserrat text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
+        <div className="text-center text-white px-4 max-w-4xl mx-auto animate-fade-in-up">
+          <h1 className="font-montserrat text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 animate-slide-up leading-tight">
             Live the Lifestyle <br />
-            <span className="text-luxury-gold block mt-1">You Deserve</span>
+            <span className="text-luxury-gold block mt-2">You Deserve</span>
           </h1>
-          <p className="text-base sm:text-lg mb-6 opacity-90 font-light px-2">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 opacity-90 animate-slide-up font-light px-2" style={{animationDelay: '0.3s'}}>
             2 & 3 BHK Luxury Apartments | Gated Community | Prime Location
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center px-4 sm:px-0">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-slide-up px-4 sm:px-0" style={{animationDelay: '0.6s'}}>
             <Button 
               variant="cta" 
-              size="lg"
+              size="xl"
               onClick={onLeadFormOpen}
-              className="text-sm sm:text-base w-full sm:w-auto"
+              className="text-base sm:text-lg w-full sm:w-auto transform transition-all duration-300 hover:scale-105 active:scale-95"
             >
               Book Site Visit
             </Button>
             <Button 
               variant="hero" 
-              size="lg"
+              size="xl"
               onClick={onLeadFormOpen}
-              className="text-sm sm:text-base w-full sm:w-auto"
+              className="text-base sm:text-lg w-full sm:w-auto transform transition-all duration-300 hover:scale-105 active:scale-95"
             >
               Download Brochure
             </Button>
