@@ -10,13 +10,13 @@ const Header = ({ onLeadFormOpen }: HeaderProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: 'Home', href: '#HeroSection' },
-    { label: 'Overview', href: '#LocationAdvantage' },
-    { label: 'Highlights', href: '#highlights' },
+    { label: 'Home', href: '#hero' },
+    { label: 'Overview', href: '#overview' },
+    { label: 'Features', href: '#highlights' },
     { label: 'Specifications', href: '#specifications' },
     { label: 'Gallery', href: '#gallery' },
-    { label: 'Floor Plans', href: '#floor-plans' },
     { label: 'Location', href: '#location' },
+    { label: 'Testimonials', href: '#testimonials' },
   ];
 
   return (
@@ -57,17 +57,17 @@ const Header = ({ onLeadFormOpen }: HeaderProps) => {
             className="text-sm font-medium border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all duration-300 group"
             onClick={onLeadFormOpen}
           >
-            <Download className="w-4 h-4 mr-2 group-hover:animate-bounce" />
+            <Download className="w-4 h-4 mr-2 animate-pulse group-hover:animate-bounce" />
             Brochure
           </Button>
           <Button
             variant="ghost"
             size="sm"
-            className="text-sm font-semibold bg-yellow-400 hover:bg-yellow-300 text-black transition-all duration-300"
+            className="text-sm font-semibold bg-yellow-400 hover:bg-yellow-300 text-black transition-all duration-300 group"
             onClick={() => window.open('tel:7331166997', '_self')}
           >
-            <Phone className="w-4 h-4 mr-2" />
-            7331166997
+            <Phone className="w-4 h-4 mr-2 group-hover:animate-pulse" />
+            Call Now
           </Button>
         </div>
       </div>
@@ -95,20 +95,20 @@ const Header = ({ onLeadFormOpen }: HeaderProps) => {
                 setMenuOpen(false);
               }}
             >
-              <Download className="w-4 h-4 mr-2 group-hover:animate-bounce" />
+              <Download className="w-4 h-4 mr-2 animate-pulse group-hover:animate-bounce" />
               Brochure
             </Button>
             <Button
               variant="ghost"
               size="sm"
-              className="w-full text-sm bg-yellow-400 hover:bg-yellow-300 text-black transition-all duration-300"
+              className="w-full text-sm bg-yellow-400 hover:bg-yellow-300 text-black transition-all duration-300 group"
               onClick={() => {
                 window.open('tel:7331166997', '_self');
                 setMenuOpen(false);
               }}
             >
-              <Phone className="w-4 h-4 mr-2" />
-              7331166997
+              <Phone className="w-4 h-4 mr-2 group-hover:animate-pulse" />
+              Call Now
             </Button>
           </div>
         </div>
