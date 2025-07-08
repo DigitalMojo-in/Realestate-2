@@ -29,7 +29,7 @@ const HeroSection = ({ onLeadFormOpen }: HeroSectionProps) => {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden mt-16">
       {/* Image Slider */}
       <div className="absolute inset-0">
         {images.map((image, index) => (

@@ -43,18 +43,40 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Gallery */}
           <div className="w-full lg:w-1/2">
-            <div className="relative overflow-hidden rounded-lg shadow-lg">
+            <div className="relative overflow-hidden rounded-lg shadow-lg group">
               <img
                 src={images[current]}
                 alt={`Gallery ${current + 1}`}
                 className="w-full h-80 object-cover"
               />
-              <button onClick={prevImage} className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 text-black rounded-full p-1 hover:bg-white">
-                <ChevronLeft className="w-5 h-5" />
+              {/* Hover Navigation Arrows */}
+              <button 
+                onClick={prevImage} 
+                className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black/80 hover:scale-110"
+              >
+                <ChevronLeft className="w-4 h-4" />
               </button>
-              <button onClick={nextImage} className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 text-black rounded-full p-1 hover:bg-white">
-                <ChevronRight className="w-5 h-5" />
+              <button 
+                onClick={nextImage} 
+                className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black/80 hover:scale-110"
+              >
+                <ChevronRight className="w-4 h-4" />
               </button>
+              
+              {/* Dot Indicators */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                {images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrent(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      current === index 
+                        ? 'bg-luxury-gold shadow-md' 
+                        : 'bg-white/60 hover:bg-white/80'
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
             <div className="flex gap-2 mt-4 overflow-x-auto">
               {images.map((img, i) => (

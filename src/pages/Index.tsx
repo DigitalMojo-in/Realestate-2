@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import LeadForm from '@/components/LeadForm';
 import ProjectOverview from '@/components/ProjectOverview';
@@ -21,6 +22,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Premium Header */}
+      <Header onLeadFormOpen={openLeadForm} />
+      
       {/* Hero Section with Image Slider */}
       <HeroSection onLeadFormOpen={openLeadForm} />
       
