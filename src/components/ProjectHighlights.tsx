@@ -68,21 +68,21 @@ const ProjectHighlights = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-4 xl:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {highlights.map((highlight, index) => {
             const IconComponent = highlight.icon;
             return (
               <Card 
                 key={index}
-                className={`p-2 sm:p-3 lg:p-4 xl:p-6 text-center hover:shadow-luxury transition-all duration-500 hover:scale-105 group border-luxury-silver/30 scroll-animate-scale stagger-delay-${Math.min(index + 1, 6)} active:scale-95 min-h-[90px] sm:min-h-[110px] lg:min-h-[140px]`}
+                className={`p-4 lg:p-6 text-center hover:shadow-luxury transition-all duration-500 hover:scale-105 group border-luxury-silver/30 scroll-animate-scale stagger-delay-${Math.min(index + 1, 6)} active:scale-95 min-h-[160px] lg:min-h-[140px]`}
               >
-                <div className={`inline-flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12 xl:w-16 xl:h-16 rounded-full mb-1 sm:mb-2 lg:mb-3 xl:mb-4 transition-all duration-300 group-hover:scale-110 ${highlight.color} bg-current/10`}>
-                  <IconComponent className={`w-3 h-3 sm:w-4 sm:h-4 lg:w-6 lg:h-6 xl:w-8 xl:h-8 ${highlight.color} transition-transform duration-300 group-hover:scale-125`} />
+                <div className={`inline-flex items-center justify-center w-12 h-12 lg:w-16 lg:h-16 rounded-full mb-3 lg:mb-4 transition-all duration-300 group-hover:scale-110 ${highlight.color} bg-current/10`}>
+                  <IconComponent className={`w-6 h-6 lg:w-8 lg:h-8 ${highlight.color} transition-transform duration-300 group-hover:scale-125`} />
                 </div>
-                <h3 className="font-montserrat font-semibold mb-0.5 sm:mb-1 lg:mb-2 text-[9px] sm:text-xs lg:text-sm xl:text-base text-luxury-charcoal leading-tight">
+                <h3 className="font-montserrat font-semibold mb-2 text-sm lg:text-base text-luxury-charcoal leading-tight">
                   {highlight.title}
                 </h3>
-                <p className="text-[7px] sm:text-[10px] lg:text-sm text-muted-foreground leading-tight">
+                <p className="text-xs lg:text-sm text-muted-foreground leading-tight">
                   {highlight.description}
                 </p>
               </Card>

@@ -299,114 +299,170 @@
   background-size: cover;
 }
 
-/* Mobile-specific optimizations */
+/* Mobile-First Design System */
 @media (max-width: 768px) {
+  /* Prevent horizontal scrolling */
+  * {
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
   .luxury-parallax {
     background-attachment: scroll;
   }
   
-  /* Reduce animation intensity on mobile for better performance */
+  /* Mobile Typography Foundation */
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+    padding-bottom: 140px; /* Space for vertical CTA buttons */
+  }
+  
+  h1 {
+    font-size: clamp(2rem, 8vw, 3rem) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem) !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  h3 {
+    font-size: clamp(1.25rem, 5vw, 1.5rem) !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  h4 {
+    font-size: 1.125rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  p {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* Mobile Container System */
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    max-width: 100vw !important;
+    overflow-x: hidden;
+  }
+  
+  /* Mobile Section Spacing */
+  .py-16 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  
+  .py-12 {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+  
+  .py-8 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  /* Mobile Card and Grid System */
+  .grid-cols-2 {
+    gap: 1rem !important;
+  }
+  
+  .grid-cols-2 > * {
+    min-height: 140px !important;
+    padding: 1rem !important;
+  }
+  
+  /* Mobile Button System */
+  .text-xs {
+    font-size: 14px !important;
+  }
+  
+  .text-sm {
+    font-size: 16px !important;
+  }
+  
+  .h-10 {
+    height: 48px !important;
+  }
+  
+  .h-11 {
+    height: 52px !important;
+  }
+  
+  .h-12 {
+    height: 56px !important;
+  }
+  
+  /* Touch Target Minimum Sizes */
+  button, .cursor-pointer, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Mobile Animations - Reduced for Performance */
   .animate-float {
     animation: floatMobile 2s ease-in-out infinite;
   }
   
-  /* Faster animations on mobile */
   .scroll-animate,
   .scroll-animate-left,
   .scroll-animate-right,
   .scroll-animate-scale {
-    transition-duration: 0.6s;
+    transition-duration: 0.5s;
   }
   
-  /* Smaller transforms on mobile to prevent overflow */
   .scroll-animate {
-    transform: translateY(20px);
+    transform: translateY(15px);
   }
   
   .scroll-animate-left {
-    transform: translateX(-30px);
+    transform: translateX(-20px);
   }
   
   .scroll-animate-right {
-    transform: translateX(30px);
+    transform: translateX(20px);
   }
   
   .scroll-animate-scale {
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
   
-  /* Touch-friendly hover effects */
-  .hover-scale {
-    transition: transform 0.2s ease;
+  /* Mobile-Specific Spacing Utilities */
+  .mb-2 {
+    margin-bottom: 0.75rem !important;
   }
   
-  /* Mobile container improvements */
-  .container {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+  .mb-3 {
+    margin-bottom: 1rem !important;
   }
   
-  /* Add bottom padding to prevent content being hidden behind sticky CTA */
-  body {
-    padding-bottom: 70px; /* Adjusted for simplified CTA layout */
+  .mb-4 {
+    margin-bottom: 1.25rem !important;
   }
   
-  /* Mobile-optimized text sizes */
-  h1 {
-    font-size: clamp(1.75rem, 7vw, 3.5rem);
-    line-height: 1.2;
+  .mb-6 {
+    margin-bottom: 1.5rem !important;
   }
   
-  h2 {
-    font-size: clamp(1.25rem, 5vw, 2.25rem);
-    line-height: 1.3;
+  .mb-8 {
+    margin-bottom: 2rem !important;
   }
   
-  h3 {
-    font-size: clamp(1rem, 4vw, 1.5rem);
-    line-height: 1.4;
-  }
-  
-  /* Mobile carousel improvements */
-  .carousel-container {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .carousel-item {
-    scroll-snap-align: center;
-    flex-shrink: 0;
-  }
-  
-  /* Mobile grid optimizations */
-  .grid-cols-2 > * {
-    min-height: 100px;
-  }
-  
-  /* Better mobile spacing */
-  .py-16 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-  
-  .py-12 {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-  
-  .py-8 {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-  
-  /* Mobile button optimizations */
-  .text-sm {
-    font-size: 0.75rem;
-  }
-  
-  .text-xs {
-    font-size: 0.625rem;
+  .mb-12 {
+    margin-bottom: 2.5rem !important;
   }
   
   /* Mobile-optimized animations */
