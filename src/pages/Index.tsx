@@ -1,12 +1,59 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import HeroSection from '@/components/HeroSection';
+import LeadForm from '@/components/LeadForm';
+import ProjectHighlights from '@/components/ProjectHighlights';
+import LocationAdvantage from '@/components/LocationAdvantage';
+import Gallery from '@/components/Gallery';
+import VideoSection from '@/components/VideoSection';
+import Testimonials from '@/components/Testimonials';
+import WhyThisProject from '@/components/WhyThisProject';
+import StickyFAB from '@/components/StickyFAB';
+import Footer from '@/components/Footer';
 
 const Index = () => {
+  const [isLeadFormOpen, setIsLeadFormOpen] = useState(false);
+
+  const openLeadForm = () => setIsLeadFormOpen(true);
+  const closeLeadForm = () => setIsLeadFormOpen(false);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      {/* Hero Section with Image Slider */}
+      <HeroSection onLeadFormOpen={openLeadForm} />
+      
+      {/* Instant Lead Form - Above the fold */}
+      <LeadForm variant="inline" />
+      
+      {/* Project Highlights Grid */}
+      <ProjectHighlights />
+      
+      {/* Location Advantage with Map */}
+      <LocationAdvantage />
+      
+      {/* Gallery & Floor Plans */}
+      <Gallery onLeadFormOpen={openLeadForm} />
+      
+      {/* Video Walkthrough */}
+      <VideoSection />
+      
+      {/* Customer Testimonials */}
+      <Testimonials />
+      
+      {/* Why This Project / Builder Trust */}
+      <WhyThisProject />
+      
+      {/* Footer with Contact Info */}
+      <Footer onLeadFormOpen={openLeadForm} />
+      
+      {/* Sticky Floating CTAs */}
+      <StickyFAB onLeadFormOpen={openLeadForm} />
+      
+      {/* Lead Form Modal */}
+      <LeadForm 
+        variant="modal" 
+        isOpen={isLeadFormOpen} 
+        onClose={closeLeadForm} 
+      />
     </div>
   );
 };
