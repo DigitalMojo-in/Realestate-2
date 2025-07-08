@@ -18,7 +18,7 @@ const PremiumShowcaseSection = ({ onLeadFormOpen }: PremiumShowcaseSectionProps)
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white relative overflow-hidden">
+    <section id="gallery" className="py-20 bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
