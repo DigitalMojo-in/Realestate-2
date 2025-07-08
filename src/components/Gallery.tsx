@@ -39,13 +39,13 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
   const prevImage = () => setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
 
   return (
-    <section ref={sectionRef} className="py-16 bg-background scroll-animate">
+    <section ref={sectionRef} className="py-20 bg-gray-100 scroll-animate">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-4">
-            Gallery & <span className="text-luxury-gold">Floor Plans</span>
+          <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+            Gallery & <span className="text-yellow-500">Floor Plans</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Explore our premium interiors and thoughtfully designed floor plans
           </p>
         </div>
@@ -53,13 +53,13 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
         <div className="flex flex-col gap-10 lg:grid lg:grid-cols-2 lg:gap-12">
           {/* Image Gallery */}
           <div className="scroll-animate-left stagger-delay-1">
-            <h3 className="font-montserrat text-xl font-semibold mb-4 text-white">Premium Interiors</h3>
-            <Card className="overflow-hidden shadow-luxury transform transition-all duration-500 hover:scale-105">
+            <h3 className="font-montserrat text-xl font-semibold mb-4 text-gray-800">Premium Interiors</h3>
+            <Card className="overflow-hidden shadow-lg bg-white">
               <div className="relative h-64 sm:h-80 md:h-96">
                 <img 
                   src={images[currentImage].src} 
                   alt={images[currentImage].title}
-                  className="w-full h-full object-cover transition-all duration-700"
+                  className="w-full h-full object-cover"
                 />
 
                 <button onClick={prevImage} className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 text-white rounded-full p-2 hover:bg-black/70">
@@ -81,7 +81,7 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
                 <button
                   key={index}
                   onClick={() => setCurrentImage(index)}
-                  className={`flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden border-2 transition-all ${index === currentImage ? 'border-luxury-gold shadow' : 'border-transparent hover:border-luxury-gold/50'}`}
+                  className={`flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden border-2 transition-all ${index === currentImage ? 'border-yellow-500 shadow' : 'border-transparent hover:border-yellow-400'}`}
                 >
                   <img src={image.src} alt={image.title} className="w-full h-full object-cover" />
                 </button>
@@ -91,60 +91,46 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
 
           {/* Floor Plans */}
           <div className="scroll-animate-right stagger-delay-2">
-            <h3 className="font-montserrat text-xl font-semibold mb-4 text-white">Floor Plans</h3>
+            <h3 className="font-montserrat text-xl font-semibold mb-4 text-gray-800">Floor Plans</h3>
             <Tabs defaultValue="2bhk" className="w-full">
-              <TabsList className="grid grid-cols-2 gap-2 bg-white/10 p-1 rounded-lg mb-4">
-                <TabsTrigger value="2bhk" className="font-semibold text-white">2 BHK</TabsTrigger>
-                <TabsTrigger value="3bhk" className="font-semibold text-white">3 BHK</TabsTrigger>
+              <TabsList className="grid grid-cols-2 gap-2 bg-yellow-100 p-1 rounded-lg mb-4">
+                <TabsTrigger value="2bhk" className="font-semibold text-gray-800">2 BHK</TabsTrigger>
+                <TabsTrigger value="3bhk" className="font-semibold text-gray-800">3 BHK</TabsTrigger>
               </TabsList>
 
               {Object.entries(floorPlans).map(([key, plan]) => (
                 <TabsContent key={key} value={key}>
-                  <Card className="p-6 bg-white/5 border border-white/10 rounded-xl">
-                    <h4 className="font-montserrat text-lg font-semibold mb-2 text-white">{plan.title}</h4>
-                    <p className="text-luxury-gold font-medium mb-4 text-base">{plan.area}</p>
+                  <Card className="p-6 bg-white border border-gray-200 rounded-xl shadow-sm">
+                    <h4 className="font-montserrat text-lg font-semibold mb-2 text-gray-900">{plan.title}</h4>
+                    <p className="text-yellow-500 font-medium mb-4 text-base">{plan.area}</p>
 
-                    <div className="h-32 md:h-40 bg-white rounded-lg mb-4 flex items-center justify-center border border-luxury-silver/30 relative overflow-hidden">
-                      <div className="w-full h-full p-4 relative">
-                        {/* Floor Plan Layout */}
-                        <div className="w-full h-full relative">
-                          {/* Main Layout Grid */}
-                          <div className="absolute inset-2 border-2 border-luxury-charcoal/20 rounded-md">
-                            {/* Rooms */}
-                            <div className="absolute top-1 left-1 w-8 h-6 border border-luxury-charcoal/30 bg-luxury-gold/10 rounded-sm"></div>
-                            <div className="absolute top-1 right-1 w-8 h-6 border border-luxury-charcoal/30 bg-luxury-gold/10 rounded-sm"></div>
-                            <div className="absolute bottom-1 left-1 w-12 h-8 border border-luxury-charcoal/30 bg-luxury-charcoal/5 rounded-sm"></div>
-                            <div className="absolute bottom-1 right-1 w-6 h-8 border border-luxury-charcoal/30 bg-luxury-charcoal/5 rounded-sm"></div>
-                            
-                            {/* Hallway */}
-                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-2 border border-luxury-charcoal/20"></div>
-                            
-                            {/* Door indicators */}
-                            <div className="absolute top-0 left-1/2 w-3 h-0.5 bg-luxury-gold"></div>
-                            <div className="absolute bottom-0 right-1/3 w-2 h-0.5 bg-luxury-gold"></div>
-                          </div>
-                          
-                          {/* Labels */}
-                          <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2">
-                            <p className="text-xs text-luxury-charcoal/60 font-medium">Floor Plan Layout</p>
+                    <div className="h-40 bg-gray-50 rounded-lg mb-4 flex items-center justify-center border border-gray-200">
+                      <div className="text-center">
+                        <div className="w-20 h-16 mx-auto mb-2 bg-white rounded-md border border-gray-200 flex items-center justify-center">
+                          <div className="grid grid-cols-2 gap-1 w-10 h-8">
+                            <div className="bg-yellow-300 rounded-sm"></div>
+                            <div className="bg-gray-300 rounded-sm"></div>
+                            <div className="bg-gray-300 rounded-sm"></div>
+                            <div className="bg-yellow-300 rounded-sm"></div>
                           </div>
                         </div>
+                        <p className="text-gray-500 text-sm font-medium">Floor Plan Preview</p>
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-6">
                       {plan.features.map((feature, index) => (
-                        <div key={index} className="flex items-center gap-3 text-white/90 text-sm">
-                          <div className="w-2 h-2 bg-luxury-gold rounded-full flex-shrink-0" />
+                        <div key={index} className="flex items-center gap-3 text-gray-700 text-sm">
+                          <div className="w-2 h-2 bg-yellow-400 rounded-full flex-shrink-0" />
                           <span>{feature}</span>
                         </div>
                       ))}
                     </div>
 
                     <Button 
-                      variant="cta" 
+                      variant="default" 
                       size="lg" 
-                      className="w-full text-sm h-12"
+                      className="w-full text-sm h-12 bg-gradient-to-r from-yellow-500 to-yellow-400 text-black hover:brightness-110"
                       onClick={onLeadFormOpen}
                     >
                       <Download className="w-4 h-4 mr-2" />
