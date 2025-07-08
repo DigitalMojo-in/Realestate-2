@@ -1,44 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Award, Star, CheckCircle, TrendingUp, Users, Zap } from 'lucide-react';
+import { Award, Star, CheckCircle } from 'lucide-react';
 
 interface PremiumShowcaseSectionProps {
   onLeadFormOpen: () => void;
 }
 
 const PremiumShowcaseSection = ({ onLeadFormOpen }: PremiumShowcaseSectionProps) => {
-  const achievements = [
-    {
-      icon: Award,
-      title: "Award Winning",
-      subtitle: "Architecture",
-      number: "15+",
-      color: "text-yellow-500"
-    },
-    {
-      icon: Users,
-      title: "Happy Families",
-      subtitle: "Living with us",
-      number: "5000+",
-      color: "text-blue-500"
-    },
-    {
-      icon: TrendingUp,
-      title: "Years of Excellence",
-      subtitle: "In Real Estate",
-      number: "25+",
-      color: "text-green-500"
-    },
-    {
-      icon: Zap,
-      title: "Premium Projects",
-      subtitle: "Delivered",
-      number: "50+",
-      color: "text-purple-500"
-    }
-  ];
-
   const features = [
     "Parametric Architecture Design",
     "RERA Approved & Certified",
@@ -49,124 +18,77 @@ const PremiumShowcaseSection = ({ onLeadFormOpen }: PremiumShowcaseSectionProps)
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-luxury-navy via-luxury-charcoal to-black text-white relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute top-20 right-10 w-40 h-40 bg-luxury-gold/10 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-20 left-10 w-60 h-60 bg-luxury-gold/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-
+    <section className="py-20 bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <Badge variant="outline" className="mb-4 border-luxury-gold text-luxury-gold bg-luxury-gold/10">
-            Premium Excellence
-          </Badge>
-          <h2 className="font-montserrat text-4xl md:text-5xl font-bold mb-6">
-            Experience <span className="text-luxury-gold">Unmatched Quality</span>
-          </h2>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            Bringing you India's finest residential experience with cutting-edge design,
-            premium amenities, and a legacy of trust spanning over two decades.
-          </p>
-        </div>
-
-        {/* Achievement Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          {achievements.map((achievement, index) => {
-            const IconComponent = achievement.icon;
-            return (
-              <Card
-                key={index}
-                className="p-6 text-center bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-500 hover:scale-105 animate-scale-in backdrop-blur-sm"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 ${achievement.color} bg-current/20`}>
-                  <IconComponent className={`w-8 h-8 ${achievement.color}`} />
-                </div>
-                <div className="text-3xl font-bold text-luxury-gold mb-1">{achievement.number}</div>
-                <div className="text-white font-semibold">{achievement.title}</div>
-                <div className="text-white/60 text-sm">{achievement.subtitle}</div>
-              </Card>
-            );
-          })}
-        </div>
-
-        {/* Main Content Grid */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="animate-slide-in-left">
-            <h3 className="font-montserrat text-3xl font-bold mb-8 text-white">
-              Why Choose Our <span className="text-luxury-gold">Premium Development</span>
-            </h3>
-
-            <div className="grid grid-cols-1 gap-4 mb-8">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex items-center space-x-3 animate-fade-in-up"
-                  style={{ animationDelay: `${0.3 + index * 0.1}s` }}
-                >
-                  <CheckCircle className="w-6 h-6 text-luxury-gold flex-shrink-0" />
-                  <span className="text-white/90">{feature}</span>
-                </div>
+          
+          {/* LEFT: Feature List + CTA */}
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Why Choose Our <span className="text-yellow-400">Premium Development</span>
+            </h2>
+            <ul className="space-y-4 text-lg font-light">
+              {features.map((item, idx) => (
+                <li key={idx} className="flex items-center gap-3">
+                  <span className="w-5 h-5 rounded-full bg-yellow-400 flex items-center justify-center text-black text-xs font-bold">✓</span>
+                  {item}
+                </li>
               ))}
-            </div>
+            </ul>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Button
                 variant="default"
-                size="xl"
+                className="bg-yellow-400 text-black hover:bg-yellow-500 transition-all px-6 py-3 rounded-lg shadow-md"
                 onClick={onLeadFormOpen}
-                className="bg-luxury-gold hover:bg-luxury-gold/90 text-luxury-charcoal font-semibold"
               >
                 <Star className="w-5 h-5 mr-2" />
                 Get Exclusive Pricing
               </Button>
-              <Button
-                variant="outline"
-                size="xl"
-                onClick={onLeadFormOpen}
-                className="border-white/30 text-white hover:bg-white/10"
-              >
-                Schedule Site Visit
-              </Button>
+              <input
+                type="text"
+                placeholder="Enter your name or number"
+                className="px-4 py-3 rounded-lg bg-white text-black shadow-inner w-full sm:w-64"
+              />
             </div>
           </div>
 
-          {/* Right Content - Feature Showcase */}
-          <div className="animate-slide-in-right">
-            <Card className="p-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/20 backdrop-blur-sm">
+          {/* RIGHT: Certification Card */}
+          <div className="flex justify-center">
+            <Card className="p-8 bg-white rounded-3xl shadow-lg w-full max-w-sm">
               <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-luxury-gold/20 rounded-full mb-4">
-                  <Award className="w-10 h-10 text-luxury-gold" />
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-yellow-100 rounded-full mb-4">
+                  <Award className="w-10 h-10 text-yellow-500" />
                 </div>
-                <h4 className="font-montserrat text-2xl font-bold text-white mb-2">
+                <h4 className="font-montserrat text-2xl font-bold text-gray-800 mb-2">
                   Premium Certification
                 </h4>
-                <p className="text-white/70">
+                <p className="text-gray-600">
                   RERA Registered & Government Approved
                 </p>
               </div>
 
               <div className="space-y-4">
-                <div className="bg-white/10 p-4 rounded-lg">
+                <div className="bg-gray-50 p-4 rounded-lg border border-green-100">
                   <div className="flex items-center justify-between">
-                    <span className="text-white">RERA Registration</span>
-                    <Badge variant="outline" className="border-green-400 text-green-400">
+                    <span className="text-gray-800">RERA Registration</span>
+                    <Badge variant="outline" className="border-green-400 text-green-600">
                       Verified ✓
                     </Badge>
                   </div>
                 </div>
-                <div className="bg-white/10 p-4 rounded-lg">
+                <div className="bg-gray-50 p-4 rounded-lg border border-blue-100">
                   <div className="flex items-center justify-between">
-                    <span className="text-white">Quality Certification</span>
-                    <Badge variant="outline" className="border-blue-400 text-blue-400">
+                    <span className="text-gray-800">Quality Certification</span>
+                    <Badge variant="outline" className="border-blue-400 text-blue-600">
                       ISO Certified
                     </Badge>
                   </div>
                 </div>
-                <div className="bg-white/10 p-4 rounded-lg">
+                <div className="bg-gray-50 p-4 rounded-lg border border-yellow-100">
                   <div className="flex items-center justify-between">
-                    <span className="text-white">Safety Standards</span>
-                    <Badge variant="outline" className="border-yellow-400 text-yellow-400">
+                    <span className="text-gray-800">Safety Standards</span>
+                    <Badge variant="outline" className="border-yellow-400 text-yellow-600">
                       5-Star Rating
                     </Badge>
                   </div>
@@ -174,6 +96,7 @@ const PremiumShowcaseSection = ({ onLeadFormOpen }: PremiumShowcaseSectionProps)
               </div>
             </Card>
           </div>
+
         </div>
       </div>
     </section>
