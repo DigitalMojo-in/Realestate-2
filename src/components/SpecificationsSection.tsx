@@ -96,7 +96,7 @@ const SpecificationsSection = () => {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-b from-white to-luxury-cream">
+    <section id="specification" className="py-16 bg-gradient-to-b from-white to-luxury-cream">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="font-montserrat text-4xl md:text-5xl font-bold mb-4 text-luxury-charcoal animate-fade-in-up">

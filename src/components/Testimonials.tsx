@@ -41,7 +41,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section ref={sectionRef} className="py-16 bg-background scroll-animate">
+    <section id="testimonial" ref={sectionRef} className="py-16 bg-background scroll-animate">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-4">

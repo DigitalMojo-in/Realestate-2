@@ -12,8 +12,8 @@ const Header = ({ onLeadFormOpen }: HeaderProps) => {
   const navLinks = [
     { label: 'Home', href: '#hero' },
     { label: 'Overview', href: '#overview' },
-    { label: 'Features', href: '#ProjectHighlights' },
-    { label: 'Specifications', href: '#specifications' },
+    { label: 'Features', href: '#highlight' },
+    { label: 'Specifications', href: '#specification' },
     { label: 'Gallery', href: '#gallery' },
     { label: 'Location', href: '#location' },
     { label: 'Testimonials', href: '#testimonials' },

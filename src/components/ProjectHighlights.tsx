@@ -57,7 +57,7 @@ const ProjectHighlights = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-8 sm:py-12 lg:py-16 bg-background scroll-animate">
+    <section id="highlight" ref={sectionRef} className="py-8 sm:py-12 lg:py-16 bg-background scroll-animate">
       <div className="container mx-auto px-3 sm:px-4">
         <div className="text-center mb-6 sm:mb-8 lg:mb-12">
           <h2 className="font-montserrat text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-2 sm:mb-3 lg:mb-4">
