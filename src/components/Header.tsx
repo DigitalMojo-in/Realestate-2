@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download, Phone } from 'lucide-react';
 
 interface HeaderProps {
   onLeadFormOpen: () => void;
@@ -44,18 +44,20 @@ const Header = ({ onLeadFormOpen }: HeaderProps) => {
           <Button
             variant="outline"
             size="sm"
-            className="text-sm font-medium border-luxury-gold text-luxury-gold hover:bg-luxury-gold hover:text-white"
+            className="text-sm font-medium border-luxury-gold text-luxury-gold hover:bg-luxury-gold hover:text-white transition-all duration-300 group"
             onClick={onLeadFormOpen}
           >
-            📄 Brochure
+            <Download className="w-4 h-4 mr-2 group-hover:animate-bounce" />
+            Brochure
           </Button>
           <Button
             variant="luxury"
             size="sm"
-            className="text-sm font-semibold bg-luxury-gold hover:bg-luxury-gold/90"
-            onClick={onLeadFormOpen}
+            className="text-sm font-semibold bg-luxury-gold hover:bg-luxury-gold/90 transition-all duration-300 hover:scale-105"
+            onClick={() => window.open('tel:7331166997', '_self')}
           >
-            📞 7331166997
+            <Phone className="w-4 h-4 mr-2" />
+            7331166997
           </Button>
         </div>
       </div>
@@ -77,24 +79,26 @@ const Header = ({ onLeadFormOpen }: HeaderProps) => {
             <Button
               variant="outline"
               size="sm"
-              className="w-full text-sm border-luxury-gold text-luxury-gold"
+              className="w-full text-sm border-luxury-gold text-luxury-gold hover:bg-luxury-gold hover:text-white transition-all duration-300 group"
               onClick={() => {
                 onLeadFormOpen();
                 setMenuOpen(false);
               }}
             >
-              📄 Brochure
+              <Download className="w-4 h-4 mr-2 group-hover:animate-bounce" />
+              Brochure
             </Button>
             <Button
               variant="luxury"
               size="sm"
-              className="w-full text-sm bg-luxury-gold"
+              className="w-full text-sm bg-luxury-gold hover:bg-luxury-gold/90 transition-all duration-300"
               onClick={() => {
-                onLeadFormOpen();
+                window.open('tel:7331166997', '_self');
                 setMenuOpen(false);
               }}
             >
-              📞 7331166997
+              <Phone className="w-4 h-4 mr-2" />
+              7331166997
             </Button>
           </div>
         </div>
