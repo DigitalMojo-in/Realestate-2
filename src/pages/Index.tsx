@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import HeroSection from '@/components/HeroSection';
 import LeadForm from '@/components/LeadForm';
+import ProjectOverview from '@/components/ProjectOverview';
 import ProjectHighlights from '@/components/ProjectHighlights';
 import LocationAdvantage from '@/components/LocationAdvantage';
 import Gallery from '@/components/Gallery';
@@ -23,6 +24,9 @@ const Index = () => {
       
       {/* Instant Lead Form - Above the fold */}
       <LeadForm variant="inline" />
+      
+      {/* Project Overview - Like the reference */}
+      <ProjectOverview onLeadFormOpen={openLeadForm} />
       
       {/* Project Highlights Grid */}
       <ProjectHighlights />

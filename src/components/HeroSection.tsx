@@ -54,13 +54,13 @@ const HeroSection = ({ onLeadFormOpen }: HeroSectionProps) => {
       {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 z-10"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full p-4 transition-all duration-300 hover:scale-110 z-20 border border-white/30 shadow-luxury"
       >
         <ChevronLeft className="w-6 h-6 text-white" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110 z-10"
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full p-4 transition-all duration-300 hover:scale-110 z-20 border border-white/30 shadow-luxury"
       >
         <ChevronRight className="w-6 h-6 text-white" />
       </button>

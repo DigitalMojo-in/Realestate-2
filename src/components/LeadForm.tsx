@@ -132,12 +132,17 @@ const LeadForm = ({ isOpen, onClose, variant = 'inline' }: LeadFormProps) => {
   }
 
   return (
-    <section className="py-12 bg-luxury-cream">
-      <div className="container mx-auto px-4">
-        <Card className="max-w-md mx-auto p-8 shadow-luxury">
-          <div className="text-center mb-6">
-            <h2 className="font-montserrat text-2xl font-bold mb-2">Get Instant Details</h2>
-            <p className="text-muted-foreground">Fill the form below to get floor plans, pricing & exclusive offers</p>
+    <section className="py-16 luxury-gradient relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10"></div>
+      <div className="container mx-auto px-4 relative z-10">
+        <Card className="max-w-lg mx-auto p-8 shadow-luxury border-2 border-luxury-gold/20 card-gradient backdrop-blur-sm">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-luxury-gold/20 rounded-full mb-4">
+              <span className="text-2xl">📋</span>
+            </div>
+            <h2 className="font-montserrat text-3xl font-bold mb-3 text-luxury-charcoal">Get Instant Details</h2>
+            <p className="text-muted-foreground text-lg">Fill the form below to get floor plans, pricing & exclusive offers</p>
+            <div className="w-24 h-1 bg-luxury-gold mx-auto mt-4 rounded-full"></div>
           </div>
           <FormContent />
         </Card>
