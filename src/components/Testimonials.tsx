@@ -120,13 +120,13 @@ const Testimonials = () => {
             </Card>
 
             {/* Testimonial Indicators */}
-            <div className="flex justify-center space-x-2 mt-4">
+            <div className="flex justify-center space-x-1.5 mt-4">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
-                    index === currentTestimonial ? 'bg-luxury-gold shadow-accent' : 'bg-luxury-silver hover:bg-luxury-gold/50'
+                  className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 active:scale-125 ${
+                    index === currentTestimonial ? 'bg-luxury-gold shadow-accent' : 'bg-luxury-silver active:bg-luxury-gold/50'
                   }`}
                 />
               ))}

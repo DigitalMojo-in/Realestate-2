@@ -122,10 +122,17 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
                     <p className="text-luxury-gold font-medium mb-4 text-base">{plan.area}</p>
                     
                     {/* Floor Plan Preview */}
-                    <div className="h-40 md:h-48 bg-luxury-cream rounded-lg mb-4 flex items-center justify-center group transition-all duration-300 active:bg-luxury-gold/10">
+                    <div className="h-32 md:h-40 bg-gradient-to-br from-luxury-cream to-luxury-silver/30 rounded-lg mb-4 flex items-center justify-center group transition-all duration-300 active:bg-luxury-gold/10 border border-luxury-silver/50">
                       <div className="text-center">
-                        <Building2 className="w-12 h-12 md:w-10 md:h-10 text-luxury-gold mx-auto mb-2 transition-transform duration-300 group-active:scale-110" />
-                        <p className="text-muted-foreground text-sm">Floor Plan Preview</p>
+                        <div className="w-16 h-12 md:w-20 md:h-16 mx-auto mb-2 bg-white rounded-md shadow-sm border border-luxury-silver/30 flex items-center justify-center">
+                          <div className="grid grid-cols-2 gap-1 w-8 h-6 md:w-10 md:h-8">
+                            <div className="bg-luxury-gold/60 rounded-sm"></div>
+                            <div className="bg-luxury-charcoal/40 rounded-sm"></div>
+                            <div className="bg-luxury-charcoal/40 rounded-sm"></div>
+                            <div className="bg-luxury-gold/60 rounded-sm"></div>
+                          </div>
+                        </div>
+                        <p className="text-muted-foreground text-sm font-medium">Floor Plan Preview</p>
                       </div>
                     </div>
                     
