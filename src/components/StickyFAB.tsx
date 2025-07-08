@@ -14,25 +14,25 @@ const StickyFAB = ({ onLeadFormOpen }: StickyFABProps) => {
   return (
     <>
       {/* Mobile Bottom Fixed CTAs */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden luxury-gradient border-t-2 border-luxury-gold/30 shadow-luxury backdrop-blur-md">
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white/95 backdrop-blur-md border-t border-luxury-silver/30 shadow-luxury">
         <div className="flex items-center gap-3 p-4">
           <Button 
-            variant="gold" 
+            variant="default" 
             size="lg" 
-            className="flex-1 shadow-accent border border-luxury-gold/30"
+            className="flex-1 bg-white text-luxury-charcoal border-2 border-luxury-gold hover:bg-luxury-gold hover:text-white shadow-card transition-all duration-300 rounded-full font-semibold"
             onClick={onLeadFormOpen}
           >
             <Phone className="w-4 h-4 mr-2" />
-            📞 Book Visit
+            Book Visit
           </Button>
           <Button 
-            variant="hero" 
+            variant="default" 
             size="lg" 
-            className="flex-1 shadow-card border border-white/30"
+            className="flex-1 bg-white text-luxury-charcoal border-2 border-luxury-navy hover:bg-luxury-navy hover:text-white shadow-card transition-all duration-300 rounded-full font-semibold"
             onClick={onLeadFormOpen}
           >
             <Download className="w-4 h-4 mr-2" />
-            📄 Brochure
+            Brochure
           </Button>
         </div>
       </div>

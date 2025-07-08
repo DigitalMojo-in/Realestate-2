@@ -6,6 +6,8 @@ import ProjectHighlights from '@/components/ProjectHighlights';
 import LocationAdvantage from '@/components/LocationAdvantage';
 import Gallery from '@/components/Gallery';
 import VideoSection from '@/components/VideoSection';
+import VideoBackgroundSection from '@/components/VideoBackgroundSection';
+import SpecificationsSection from '@/components/SpecificationsSection';
 import Testimonials from '@/components/Testimonials';
 import WhyThisProject from '@/components/WhyThisProject';
 import StickyFAB from '@/components/StickyFAB';
@@ -36,6 +38,12 @@ const Index = () => {
       
       {/* Gallery & Floor Plans */}
       <Gallery onLeadFormOpen={openLeadForm} />
+      
+      {/* Specifications Section */}
+      <SpecificationsSection />
+      
+      {/* Video Background Section */}
+      <VideoBackgroundSection onLeadFormOpen={openLeadForm} />
       
       {/* Video Walkthrough */}
       <VideoSection />

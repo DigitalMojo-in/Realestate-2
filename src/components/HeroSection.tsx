@@ -54,15 +54,15 @@ const HeroSection = ({ onLeadFormOpen }: HeroSectionProps) => {
       {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full p-4 transition-all duration-300 hover:scale-110 z-20 border border-white/30 shadow-luxury"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/10 hover:bg-black/20 backdrop-blur-sm rounded-full p-2 transition-all duration-300 hover:scale-110 z-20"
       >
-        <ChevronLeft className="w-6 h-6 text-white" />
+        <ChevronLeft className="w-4 h-4 text-white" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full p-4 transition-all duration-300 hover:scale-110 z-20 border border-white/30 shadow-luxury"
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/10 hover:bg-black/20 backdrop-blur-sm rounded-full p-2 transition-all duration-300 hover:scale-110 z-20"
       >
-        <ChevronRight className="w-6 h-6 text-white" />
+        <ChevronRight className="w-4 h-4 text-white" />
       </button>
 
       {/* Slide Indicators */}
@@ -92,7 +92,7 @@ const HeroSection = ({ onLeadFormOpen }: HeroSectionProps) => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{animationDelay: '0.4s'}}>
             <Button 
-              variant="gold" 
+              variant="cta" 
               size="xl"
               onClick={onLeadFormOpen}
               className="text-lg"
