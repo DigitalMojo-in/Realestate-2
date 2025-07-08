@@ -53,44 +53,30 @@ const Footer = ({ onLeadFormOpen }: FooterProps) => {
             </div>
           </div>
 
-          {/* Quick Actions */}
-          <div>
-            <h3 className="font-montserrat text-xl font-bold mb-6">Quick Actions</h3>
-            <div className="space-y-3">
-              <Button 
-                variant="outline" 
-                size="sm"
-                onClick={onLeadFormOpen}
-                className="w-full justify-start text-white border-white/20 hover:bg-white/10"
-              >
-                Book Site Visit
-              </Button>
-              <Button 
-                variant="outline" 
-                size="sm"
-                onClick={onLeadFormOpen}
-                className="w-full justify-start text-white border-white/20 hover:bg-white/10"
-              >
-                Download Brochure
-              </Button>
-              <Button 
-                variant="outline" 
-                size="sm"
-                onClick={onLeadFormOpen}
-                className="w-full justify-start text-white border-white/20 hover:bg-white/10"
-              >
-                Get Floor Plans
-              </Button>
-              <Button 
-                variant="outline" 
-                size="sm"
-                onClick={onLeadFormOpen}
-                className="w-full justify-start text-white border-white/20 hover:bg-white/10"
-              >
-                Check Availability
-              </Button>
-            </div>
-          </div>
+         {/* Quick Actions */}
+<div>
+  <h3 className="font-montserrat text-xl font-semibold text-white mb-6">Quick Actions</h3>
+  <div className="space-y-3">
+    {[
+      { label: "Book Site Visit" },
+      { label: "Download Brochure" },
+      { label: "Get Floor Plans" },
+      { label: "Check Availability" },
+    ].map((action, idx) => (
+      <Button
+        key={idx}
+        variant="outline"
+        size="sm"
+        onClick={onLeadFormOpen}
+        className="w-full justify-start text-white border-white/20 hover:bg-white/10 transition-colors"
+        aria-label={action.label}
+      >
+        {action.label}
+      </Button>
+    ))}
+  </div>
+</div>
+
 
           {/* Project Highlights */}
           <div>
