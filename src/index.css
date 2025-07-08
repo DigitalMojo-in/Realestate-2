@@ -298,3 +298,105 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  .luxury-parallax {
+    background-attachment: scroll; /* Fixed backgrounds can cause performance issues on mobile */
+  }
+  
+  /* Reduce animation intensity on mobile for better performance */
+  .animate-float {
+    animation: floatMobile 2s ease-in-out infinite;
+  }
+  
+  /* Faster animations on mobile */
+  .scroll-animate,
+  .scroll-animate-left,
+  .scroll-animate-right,
+  .scroll-animate-scale {
+    transition-duration: 0.6s;
+  }
+  
+  /* Smaller transforms on mobile to prevent overflow */
+  .scroll-animate {
+    transform: translateY(20px);
+  }
+  
+  .scroll-animate-left {
+    transform: translateX(-30px);
+  }
+  
+  .scroll-animate-right {
+    transform: translateX(30px);
+  }
+  
+  .scroll-animate-scale {
+    transform: scale(0.9);
+  }
+  
+  /* Touch-friendly hover effects */
+  .hover-scale {
+    transition: transform 0.2s ease;
+  }
+  
+  /* Ensure cards don't get too small on mobile */
+  .grid-cols-2 > * {
+    min-height: 120px;
+  }
+  
+  /* Better spacing for mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Mobile-optimized text sizes */
+  h1 {
+    font-size: clamp(2rem, 8vw, 4rem);
+    line-height: 1.2;
+  }
+  
+  h2 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+  
+  /* Mobile carousel improvements */
+  .carousel-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .carousel-item {
+    scroll-snap-align: center;
+    flex-shrink: 0;
+  }
+  
+  /* Mobile-optimized animations */
+  @keyframes floatMobile {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-float,
+    .animate-pulse,
+    .animate-bounce {
+      animation: none;
+    }
+    
+    .scroll-animate,
+    .scroll-animate-left,
+    .scroll-animate-right,
+    .scroll-animate-scale {
+      transition: opacity 0.3s ease;
+      transform: none;
+    }
+  }
+}
