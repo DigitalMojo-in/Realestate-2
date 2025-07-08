@@ -53,7 +53,7 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
         <div className="flex flex-col gap-10 lg:grid lg:grid-cols-2 lg:gap-12">
           {/* Image Gallery */}
           <div className="scroll-animate-left stagger-delay-1">
-            <h3 className="font-montserrat text-xl font-semibold mb-4">Premium Interiors</h3>
+            <h3 className="font-montserrat text-xl font-semibold mb-4 text-white">Premium Interiors</h3>
             <Card className="overflow-hidden shadow-luxury transform transition-all duration-500 hover:scale-105">
               <div className="relative h-64 sm:h-80 md:h-96">
                 <img 
@@ -91,7 +91,7 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
 
           {/* Floor Plans */}
           <div className="scroll-animate-right stagger-delay-2">
-            <h3 className="font-montserrat text-xl font-semibold mb-4">Floor Plans</h3>
+            <h3 className="font-montserrat text-xl font-semibold mb-4 text-white">Floor Plans</h3>
             <Tabs defaultValue="2bhk" className="w-full">
               <TabsList className="grid grid-cols-2 gap-2 bg-white/10 p-1 rounded-lg mb-4">
                 <TabsTrigger value="2bhk" className="font-semibold text-white">2 BHK</TabsTrigger>
@@ -118,11 +118,11 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-6">
                       {plan.features.map((feature, index) => (
-                        <div key={index} className="flex items-center space-x-3">
-                          <div className="w-2 h-2 bg-luxury-gold rounded-full"></div>
-                          <span className="text-sm text-white/90">{feature}</span>
+                        <div key={index} className="flex items-center gap-3 text-white/90 text-sm">
+                          <div className="w-2 h-2 bg-luxury-gold rounded-full flex-shrink-0" />
+                          <span>{feature}</span>
                         </div>
                       ))}
                     </div>
