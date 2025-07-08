@@ -10,7 +10,7 @@ const Header = ({ onLeadFormOpen }: HeaderProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: 'Home', href: '#HeroSection' },
+    { label: 'Home', href: '#hero' },
     { label: 'Overview', href: '#overview' },
     { label: 'Features', href: '#ProjectHighlights' },
     { label: 'Specifications', href: '#specifications' },
