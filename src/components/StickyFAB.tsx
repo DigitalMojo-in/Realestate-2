@@ -38,28 +38,28 @@ const StickyFAB = ({ onLeadFormOpen }: StickyFABProps) => {
       </div>
 
       {/* Desktop Floating Action Buttons */}
-      <div className="hidden md:flex fixed right-6 bottom-6 z-50 flex-col gap-4">
+      <div className="hidden md:flex fixed right-6 bottom-6 z-50 flex-col gap-3">
         <div className="group relative">
           <Button 
             onClick={onLeadFormOpen}
-            className="w-16 h-16 rounded-full bg-luxury-gold hover:bg-luxury-gold/90 text-luxury-charcoal shadow-luxury hover:shadow-accent transition-all duration-300 hover:scale-110 p-0 group border-2 border-luxury-gold/30"
+            className="w-12 h-12 rounded-full bg-luxury-gold hover:bg-luxury-gold/90 text-luxury-charcoal shadow-card hover:shadow-luxury transition-all duration-300 hover:scale-105 p-0 group"
           >
-            <Phone className="w-6 h-6" />
+            <Phone className="w-4 h-4" />
           </Button>
-          <div className="absolute right-20 top-1/2 -translate-y-1/2 bg-luxury-charcoal text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap shadow-luxury">
-            Book Site Visit
+          <div className="absolute right-14 top-1/2 -translate-y-1/2 bg-luxury-charcoal text-white px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
+            Book Visit
           </div>
         </div>
         
         <div className="group relative">
           <Button 
             onClick={onLeadFormOpen}
-            className="w-16 h-16 rounded-full bg-white hover:bg-gray-50 text-luxury-charcoal shadow-luxury hover:shadow-accent transition-all duration-300 hover:scale-110 p-0 group border-2 border-luxury-charcoal/20"
+            className="w-12 h-12 rounded-full bg-luxury-charcoal hover:bg-luxury-charcoal/90 text-white shadow-card hover:shadow-luxury transition-all duration-300 hover:scale-105 p-0 group"
           >
-            <Download className="w-6 h-6" />
+            <Download className="w-4 h-4" />
           </Button>
-          <div className="absolute right-20 top-1/2 -translate-y-1/2 bg-luxury-charcoal text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap shadow-luxury">
-            Download Brochure
+          <div className="absolute right-14 top-1/2 -translate-y-1/2 bg-luxury-charcoal text-white px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
+            Brochure
           </div>
         </div>
         
@@ -68,12 +68,12 @@ const StickyFAB = ({ onLeadFormOpen }: StickyFABProps) => {
             href="https://wa.me/919876543210" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center justify-center w-16 h-16 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-luxury transition-all duration-300 hover:scale-110 border-2 border-green-400/30"
+            className="flex items-center justify-center w-12 h-12 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-card transition-all duration-300 hover:scale-105"
           >
-            <MessageCircle className="w-6 h-6" />
+            <MessageCircle className="w-4 h-4" />
           </a>
-          <div className="absolute right-20 top-1/2 -translate-y-1/2 bg-green-600 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap shadow-luxury">
-            WhatsApp Chat
+          <div className="absolute right-14 top-1/2 -translate-y-1/2 bg-green-600 text-white px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
+            WhatsApp
           </div>
         </div>
       </div>

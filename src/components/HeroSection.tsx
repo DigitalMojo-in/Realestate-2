@@ -82,10 +82,10 @@ const HeroSection = ({ onLeadFormOpen }: HeroSectionProps) => {
 
       {/* Content */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
-        <div className="text-center text-white px-4 max-w-4xl mx-auto">
+        <div className="text-center text-white px-4 max-w-4xl mx-auto animate-fade-in-up">
           <h1 className="font-montserrat text-4xl md:text-6xl lg:text-7xl font-bold mb-4 animate-slide-up leading-tight">
             Live the Lifestyle <br />
-            <span className="text-luxury-gold animate-pulse-glow block mt-2">You Deserve</span>
+            <span className="text-luxury-gold block mt-2">You Deserve</span>
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl mb-8 opacity-90 animate-slide-up font-light" style={{animationDelay: '0.3s'}}>
             2 & 3 BHK Luxury Apartments | Gated Community | Prime Location
