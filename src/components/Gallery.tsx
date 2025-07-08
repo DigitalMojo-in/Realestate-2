@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
-import { Download, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { ChevronLeft, ChevronRight, Download } from 'lucide-react';
 import gallery1 from '@/assets/gallery-1.jpg';
 import gallery2 from '@/assets/gallery-2.jpg';
 import gallery3 from '@/assets/gallery-3.jpg';
@@ -13,86 +13,93 @@ interface GalleryProps {
 const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
   const [current, setCurrent] = useState(0);
 
-  const images = [
-    { src: gallery1, title: 'Master Bedroom', desc: 'Spacious & elegant' },
-    { src: gallery2, title: 'Modular Kitchen', desc: 'Functional luxury' },
-    { src: gallery3, title: 'Balcony View', desc: 'Serene and scenic' },
-  ];
-
+  const images = [gallery1, gallery2, gallery3];
   const floorPlans = {
     '2bhk': {
       title: '2 BHK Apartment',
       area: '1,200 - 1,350 sq.ft',
-      features: ['2 Bedrooms', '2 Bathrooms', 'Living Room', 'Kitchen', 'Balcony']
+      features: ['2 Bedrooms', '2 Bathrooms', 'Living Room', 'Kitchen', 'Balcony', 'Utility Area']
     },
     '3bhk': {
       title: '3 BHK Apartment',
       area: '1,650 - 1,850 sq.ft',
-      features: ['3 Bedrooms', '3 Bathrooms', 'Living Room', 'Kitchen', '2 Balconies', 'Study Room']
+      features: ['3 Bedrooms', '3 Bathrooms', 'Living Room', 'Kitchen', '2 Balconies', 'Utility Area', 'Study Room']
     }
   };
 
-  const handleNext = () => setCurrent((current + 1) % images.length);
-  const handlePrev = () => setCurrent((current - 1 + images.length) % images.length);
+  const nextImage = () => setCurrent((prev) => (prev + 1) % images.length);
+  const prevImage = () => setCurrent((prev) => (prev - 1 + images.length) % images.length);
 
   return (
     <section className="py-16 bg-white text-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-10">Gallery & Floor Plans</h2>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">Gallery & Floor Plans</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Explore interiors and layout plans that reflect modern luxury
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="flex flex-col lg:flex-row gap-12">
           {/* Gallery */}
-          <div>
-            <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
-              <img src={images[current].src} alt={images[current].title} className="w-full h-full object-cover" />
-              <button onClick={handlePrev} className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full">
+          <div className="w-full lg:w-1/2">
+            <div className="relative overflow-hidden rounded-lg shadow-lg">
+              <img
+                src={images[current]}
+                alt={`Gallery ${current + 1}`}
+                className="w-full h-80 object-cover"
+              />
+              <button onClick={prevImage} className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 text-black rounded-full p-1 hover:bg-white">
                 <ChevronLeft className="w-5 h-5" />
               </button>
-              <button onClick={handleNext} className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full">
+              <button onClick={nextImage} className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 text-black rounded-full p-1 hover:bg-white">
                 <ChevronRight className="w-5 h-5" />
               </button>
-              <div className="absolute bottom-0 left-0 right-0 bg-black/40 p-3">
-                <h4 className="text-white text-lg font-semibold">{images[current].title}</h4>
-                <p className="text-white text-sm">{images[current].desc}</p>
-              </div>
+            </div>
+            <div className="flex gap-2 mt-4 overflow-x-auto">
+              {images.map((img, i) => (
+                <img
+                  key={i}
+                  src={img}
+                  alt={`Thumb ${i + 1}`}
+                  onClick={() => setCurrent(i)}
+                  className={`w-20 h-16 object-cover rounded-lg cursor-pointer border-2 ${current === i ? 'border-black' : 'border-transparent'}`}
+                />
+              ))}
             </div>
           </div>
 
           {/* Floor Plans */}
-          <div>
+          <div className="w-full lg:w-1/2">
             <h3 className="text-xl font-semibold mb-4">Floor Plans</h3>
             <Tabs defaultValue="2bhk">
-              <TabsList className="grid grid-cols-2 mb-4 bg-gray-100 rounded-md">
-                <TabsTrigger value="2bhk" className="py-2 px-4 text-sm font-medium">2 BHK</TabsTrigger>
-                <TabsTrigger value="3bhk" className="py-2 px-4 text-sm font-medium">3 BHK</TabsTrigger>
+              <TabsList className="flex gap-2 bg-gray-100 p-1 rounded-md mb-4">
+                <TabsTrigger value="2bhk" className="flex-1 py-2 px-4 rounded-md bg-white text-sm font-medium hover:bg-gray-200">
+                  2 BHK
+                </TabsTrigger>
+                <TabsTrigger value="3bhk" className="flex-1 py-2 px-4 rounded-md bg-white text-sm font-medium hover:bg-gray-200">
+                  3 BHK
+                </TabsTrigger>
               </TabsList>
 
               {Object.entries(floorPlans).map(([key, plan]) => (
-                <TabsContent key={key} value={key}>
-                  <div className="p-4 border border-gray-200 rounded-md bg-gray-50">
-                    <h4 className="text-lg font-bold mb-1">{plan.title}</h4>
-                    <p className="text-sm text-yellow-600 font-medium mb-4">{plan.area}</p>
+                <TabsContent key={key} value={key} className="border rounded-md p-4 bg-gray-50">
+                  <h4 className="text-lg font-semibold mb-1">{plan.title}</h4>
+                  <p className="text-sm text-gray-500 mb-3">{plan.area}</p>
 
-                    <div className="w-full h-32 bg-white border border-dashed border-gray-300 rounded flex items-center justify-center mb-4">
-                      <span className="text-gray-500 text-sm">Floor Plan Preview</span>
-                    </div>
-
-                    <ul className="list-disc pl-5 space-y-1 text-sm text-gray-800 mb-4">
-                      {plan.features.map((feature, i) => (
-                        <li key={i}>{feature}</li>
-                      ))}
-                    </ul>
-
-                    <Button
-                      variant="cta"
-                      size="lg"
-                      className="w-full"
-                      onClick={onLeadFormOpen}
-                    >
-                      <Download className="w-4 h-4 mr-2" />
-                      Get Floor Plan PDF
-                    </Button>
+                  <div className="w-full h-32 bg-gray-100 flex items-center justify-center rounded-md mb-4">
+                    <span className="text-sm text-gray-400">Floor Plan Preview</span>
                   </div>
+
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4 text-sm list-disc list-inside">
+                    {plan.features.map((feature, index) => (
+                      <li key={index}>{feature}</li>
+                    ))}
+                  </ul>
+
+                  <Button onClick={onLeadFormOpen} className="w-full bg-black text-white hover:bg-gray-900">
+                    <Download className="w-4 h-4 mr-2" /> Get Floor Plan PDF
+                  </Button>
                 </TabsContent>
               ))}
             </Tabs>
