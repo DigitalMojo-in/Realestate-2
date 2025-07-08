@@ -323,6 +323,11 @@
     padding-bottom: 140px; /* Space for vertical CTA buttons */
   }
   
+  /* Ensure all text meets minimum size requirements */
+  * {
+    font-size: max(16px, 1em);
+  }
+  
   h1 {
     font-size: clamp(2rem, 8vw, 3rem) !important;
     line-height: 1.2 !important;
@@ -387,11 +392,15 @@
   
   /* Mobile Button System */
   .text-xs {
-    font-size: 14px !important;
+    font-size: 16px !important;
+  }
+
+  .text-sm {
+    font-size: 18px !important;
   }
   
-  .text-sm {
-    font-size: 16px !important;
+  .text-base {
+    font-size: 20px !important;
   }
   
   .h-10 {
@@ -407,9 +416,16 @@
   }
   
   /* Touch Target Minimum Sizes */
-  button, .cursor-pointer, [role="button"] {
-    min-height: 44px;
-    min-width: 44px;
+  button, .cursor-pointer, [role="button"], [data-state] {
+    min-height: 48px;
+    min-width: 48px;
+    touch-action: manipulation;
+  }
+  
+  /* Improve touch feedback */
+  button:active, .cursor-pointer:active, [role="button"]:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
   }
   
   /* Mobile Animations - Reduced for Performance */

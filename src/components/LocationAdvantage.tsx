@@ -65,12 +65,24 @@ const LocationAdvantage = () => {
             ))}
 
             <Card className="p-6 luxury-gradient text-white mt-6">
-              <h4 className="font-montserrat font-semibold mb-2">Key Transportation</h4>
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div>✈️ Airport: 45 mins</div>
-                <div>🚇 Metro: 2 km</div>
-                <div>🚌 Bus Stop: 500m</div>
-                <div>🛣️ ORR: 3 km</div>
+              <h4 className="font-montserrat font-semibold mb-4 text-lg">Key Transportation</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-base md:text-sm">
+                <div className="flex items-center gap-3 py-2">
+                  <span className="text-xl">✈️</span>
+                  <span>Airport: 45 mins</span>
+                </div>
+                <div className="flex items-center gap-3 py-2">
+                  <span className="text-xl">🚇</span>
+                  <span>Metro: 2 km</span>
+                </div>
+                <div className="flex items-center gap-3 py-2">
+                  <span className="text-xl">🚌</span>
+                  <span>Bus Stop: 500m</span>
+                </div>
+                <div className="flex items-center gap-3 py-2">
+                  <span className="text-xl">🛣️</span>
+                  <span>ORR: 3 km</span>
+                </div>
               </div>
             </Card>
           </div>

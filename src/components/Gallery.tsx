@@ -70,13 +70,13 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
                 {/* Navigation */}
                 <button
                   onClick={prevImage}
-                  className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-1.5 sm:p-2 transition-all duration-300 hover:scale-110"
+                  className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/50 active:bg-black/70 text-white rounded-full p-1.5 sm:p-2 transition-all duration-300 active:scale-95 min-h-[44px] min-w-[44px] flex items-center justify-center"
                 >
                   <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-1.5 sm:p-2 transition-all duration-300 hover:scale-110"
+                  className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black/50 active:bg-black/70 text-white rounded-full p-1.5 sm:p-2 transition-all duration-300 active:scale-95 min-h-[44px] min-w-[44px] flex items-center justify-center"
                 >
                   <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
@@ -95,8 +95,8 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
                 <button
                   key={index}
                   onClick={() => setCurrentImage(index)}
-                  className={`flex-shrink-0 w-16 h-12 sm:w-20 sm:h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 hover:scale-105 ${
-                    index === currentImage ? 'border-luxury-gold shadow-accent' : 'border-transparent hover:border-luxury-gold/50'
+                  className={`flex-shrink-0 w-16 h-12 sm:w-20 sm:h-16 rounded-lg overflow-hidden border-2 transition-all duration-300 active:scale-95 min-h-[44px] min-w-[44px] ${
+                    index === currentImage ? 'border-luxury-gold shadow-accent' : 'border-transparent active:border-luxury-gold/50'
                   }`}
                 >
                   <img src={image.src} alt={image.title} className="w-full h-full object-cover" />
@@ -122,9 +122,9 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
                     <p className="text-luxury-gold font-medium mb-4 text-base">{plan.area}</p>
                     
                     {/* Floor Plan Preview */}
-                    <div className="h-40 md:h-48 bg-luxury-cream rounded-lg mb-4 flex items-center justify-center group transition-all duration-300 hover:bg-luxury-gold/10">
+                    <div className="h-40 md:h-48 bg-luxury-cream rounded-lg mb-4 flex items-center justify-center group transition-all duration-300 active:bg-luxury-gold/10">
                       <div className="text-center">
-                        <Building2 className="w-12 h-12 md:w-10 md:h-10 text-luxury-gold mx-auto mb-2 transition-transform duration-300 group-hover:scale-110" />
+                        <Building2 className="w-12 h-12 md:w-10 md:h-10 text-luxury-gold mx-auto mb-2 transition-transform duration-300 group-active:scale-110" />
                         <p className="text-muted-foreground text-sm">Floor Plan Preview</p>
                       </div>
                     </div>
@@ -133,7 +133,7 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
                       {plan.features.map((feature, index) => (
                         <div key={index} className="flex items-center space-x-3 group">
-                          <div className="w-2 h-2 bg-luxury-gold rounded-full transition-transform duration-300 group-hover:scale-150 flex-shrink-0"></div>
+                          <div className="w-2 h-2 bg-luxury-gold rounded-full transition-transform duration-300 group-active:scale-150 flex-shrink-0"></div>
                           <span className="text-sm md:text-xs">{feature}</span>
                         </div>
                       ))}
@@ -142,10 +142,10 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
                     <Button 
                       variant="cta" 
                       size="lg" 
-                      className="w-full transform transition-all duration-300 hover:scale-105 text-sm h-12"
+                      className="w-full transform transition-all duration-300 active:scale-95 text-sm h-12"
                       onClick={onLeadFormOpen}
                     >
-                      <Download className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:rotate-12" />
+                      <Download className="w-4 h-4 mr-2 transition-transform duration-300 group-active:rotate-12" />
                       Get Floor Plan PDF
                     </Button>
                   </Card>
