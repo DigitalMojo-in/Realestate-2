@@ -8,30 +8,30 @@ interface ProjectOverviewProps {
 
 const ProjectOverview = ({ onLeadFormOpen }: ProjectOverviewProps) => {
   return (
-    <section className="py-12 sm:py-16 bg-gradient-to-br from-luxury-cream to-white">
-      <div className="container mx-auto px-4">
+    <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-luxury-cream to-white">
+      <div className="container mx-auto px-3 sm:px-4">
         <div className="max-w-4xl mx-auto">
-          <Card className="p-4 sm:p-6 lg:p-8 shadow-luxury border-2 border-luxury-gold/20 card-gradient">
-            <div className="text-center mb-6 sm:mb-8">
+          <Card className="p-3 sm:p-6 lg:p-8 shadow-luxury border-2 border-luxury-gold/20 card-gradient">
+            <div className="text-center mb-4 sm:mb-6 lg:mb-8">
               <h2 className="font-montserrat text-2xl sm:text-3xl lg:text-4xl font-bold text-luxury-charcoal mb-3 sm:mb-4">
                 Project Overview
               </h2>
               <div className="w-16 sm:w-24 h-1 bg-luxury-gold mx-auto rounded-full"></div>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
-              <div className="animate-slide-in-left">
-                <div className="mb-4 sm:mb-6">
-                  <h3 className="font-montserrat text-xl sm:text-2xl font-bold text-luxury-charcoal mb-2">
+            <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center">
+              <div className="animate-slide-in-left order-2 lg:order-1">
+                <div className="mb-3 sm:mb-4 lg:mb-6">
+                  <h3 className="font-montserrat text-lg sm:text-xl lg:text-2xl font-bold text-luxury-charcoal mb-1 sm:mb-2">
                     Welcome to <span className="text-luxury-gold">Premium Living</span>
                   </h3>
-                  <div className="flex items-center gap-2 text-luxury-navy mb-3 sm:mb-4">
-                    <MapPin className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-                    <span className="font-medium text-sm sm:text-base">Prime Location, City Center</span>
+                  <div className="flex items-center gap-2 text-luxury-navy mb-2 sm:mb-3 lg:mb-4">
+                    <MapPin className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 flex-shrink-0" />
+                    <span className="font-medium text-xs sm:text-sm lg:text-base">Prime Location, City Center</span>
                   </div>
                 </div>
                 
-                <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed mb-4 sm:mb-6">
+                <p className="text-muted-foreground text-xs sm:text-sm lg:text-base leading-relaxed mb-3 sm:mb-4 lg:mb-6 px-1">
                   Presenting a landmark masterpiece situated in the very heart of the city. 
                   Bringing parametric architecture for the very first time ever; 
                   the 2 & 3 BHKs here feature luxuriant rooftop amenities, meticulous detailing 
@@ -73,10 +73,10 @@ const ProjectOverview = ({ onLeadFormOpen }: ProjectOverviewProps) => {
                 </Button>
               </div>
               
-              <div className="space-y-3 sm:space-y-4 animate-slide-in-right mt-6 md:mt-0">
-                <Card className="p-4 sm:p-6 bg-primary text-white relative overflow-hidden hover:scale-105 transition-all duration-500 animate-scale-in" style={{animationDelay: '0.2s'}}>
-                  <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
-                    <Star className="w-5 h-5 sm:w-6 sm:h-6 fill-current text-luxury-gold" />
+              <div className="space-y-2 sm:space-y-3 lg:space-y-4 animate-slide-in-right order-1 lg:order-2 mb-4 lg:mb-0">
+                <Card className="p-3 sm:p-4 lg:p-6 bg-primary text-white relative overflow-hidden hover:scale-105 transition-all duration-500 animate-scale-in" style={{animationDelay: '0.2s'}}>
+                  <div className="absolute top-2 right-2 sm:top-3 sm:right-3 lg:top-4 lg:right-4">
+                    <Star className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 fill-current text-luxury-gold" />
                   </div>
                   <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">50,000</div>
                   <div className="text-base sm:text-lg opacity-90">Sq.ft</div>

@@ -110,9 +110,9 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
             <h3 className="font-montserrat text-xl font-semibold mb-4">Floor Plans</h3>
             
             <Tabs defaultValue="2bhk" className="w-full">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="2bhk">2 BHK</TabsTrigger>
-                <TabsTrigger value="3bhk">3 BHK</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-2 h-12 mb-4">
+                <TabsTrigger value="2bhk" className="text-sm font-semibold">2 BHK</TabsTrigger>
+                <TabsTrigger value="3bhk" className="text-sm font-semibold">3 BHK</TabsTrigger>
               </TabsList>
               
               {Object.entries(floorPlans).map(([key, plan]) => (

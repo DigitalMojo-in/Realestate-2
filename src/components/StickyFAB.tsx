@@ -13,38 +13,49 @@ const StickyFAB = ({ onLeadFormOpen }: StickyFABProps) => {
 
   return (
     <>
-      {/* Mobile Bottom Fixed CTAs */}
+      {/* Mobile Bottom Fixed CTAs - Vertical Layout */}
       <div className="fixed bottom-0 left-0 right-0 z-50 block md:hidden bg-white/95 backdrop-blur-md border-t border-luxury-silver/30 shadow-luxury">
-        <div className="flex items-center gap-2 p-3">
-          <Button 
-            variant="default" 
-            size="lg" 
-            className="flex-1 bg-luxury-gold text-luxury-charcoal hover:bg-luxury-gold/90 shadow-card transition-all duration-300 rounded-full font-semibold text-sm px-4 py-3 active:scale-95"
-            onClick={onLeadFormOpen}
-          >
-            <Phone className="w-4 h-4 mr-1.5" />
-            Book Visit
-          </Button>
-          <Button 
-            variant="default" 
-            size="lg" 
-            className="flex-1 bg-luxury-charcoal text-white hover:bg-luxury-charcoal/90 shadow-card transition-all duration-300 rounded-full font-semibold text-sm px-4 py-3 active:scale-95"
-            onClick={onLeadFormOpen}
-          >
-            <Download className="w-4 h-4 mr-1.5" />
-            Brochure
-          </Button>
-          <a 
-            href="https://wa.me/919876543210" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center justify-center w-12 h-12 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-card transition-all duration-300 active:scale-95"
-          >
-            <MessageCircle className="w-5 h-5" />
-          </a>
+        <div className="flex flex-col gap-2 p-3">
+          <div className="flex gap-2">
+            <Button 
+              variant="default" 
+              size="lg" 
+              className="flex-1 bg-luxury-gold text-luxury-charcoal hover:bg-luxury-gold/90 shadow-card transition-all duration-300 rounded-lg font-semibold text-sm h-12 active:scale-95"
+              onClick={onLeadFormOpen}
+            >
+              <Phone className="w-4 h-4 mr-2" />
+              Book Site Visit
+            </Button>
+            <Button 
+              variant="default" 
+              size="lg" 
+              className="flex-1 bg-luxury-charcoal text-white hover:bg-luxury-charcoal/90 shadow-card transition-all duration-300 rounded-lg font-semibold text-sm h-12 active:scale-95"
+              onClick={onLeadFormOpen}
+            >
+              <Download className="w-4 h-4 mr-2" />
+              Download Brochure
+            </Button>
+          </div>
+          <div className="flex gap-2">
+            <a 
+              href="https://wa.me/919876543210" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center bg-green-500 hover:bg-green-600 text-white rounded-lg shadow-card transition-all duration-300 h-10 text-sm font-semibold active:scale-95"
+            >
+              <MessageCircle className="w-4 h-4 mr-2" />
+              WhatsApp Us
+            </a>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="flex-1 border-luxury-gold text-luxury-gold hover:bg-luxury-gold hover:text-white transition-all duration-300 rounded-lg text-sm h-10 active:scale-95"
+              onClick={onLeadFormOpen}
+            >
+              Get Floor Plans
+            </Button>
+          </div>
         </div>
-        {/* Add padding to prevent content from being hidden behind the fixed bar */}
-        <div className="h-0"></div>
       </div>
 
       {/* Desktop Floating Action Buttons */}

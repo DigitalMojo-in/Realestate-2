@@ -57,32 +57,32 @@ const ProjectHighlights = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-12 sm:py-16 bg-background scroll-animate">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="font-montserrat text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
+    <section ref={sectionRef} className="py-8 sm:py-12 lg:py-16 bg-background scroll-animate">
+      <div className="container mx-auto px-3 sm:px-4">
+        <div className="text-center mb-6 sm:mb-8 lg:mb-12">
+          <h2 className="font-montserrat text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-2 sm:mb-3 lg:mb-4">
             Premium <span className="text-luxury-gold">Features</span>
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
+          <p className="text-xs sm:text-sm lg:text-base xl:text-lg text-muted-foreground max-w-2xl mx-auto px-2 sm:px-4">
             Experience luxury living with world-class amenities designed for your comfort and convenience
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-4 xl:gap-6">
           {highlights.map((highlight, index) => {
             const IconComponent = highlight.icon;
             return (
               <Card 
                 key={index}
-                className={`p-3 sm:p-4 lg:p-6 text-center hover:shadow-luxury transition-all duration-500 hover:scale-110 group border-luxury-silver/30 scroll-animate-scale stagger-delay-${Math.min(index + 1, 6)} active:scale-95`}
+                className={`p-2 sm:p-3 lg:p-4 xl:p-6 text-center hover:shadow-luxury transition-all duration-500 hover:scale-110 group border-luxury-silver/30 scroll-animate-scale stagger-delay-${Math.min(index + 1, 6)} active:scale-95 min-h-[100px] sm:min-h-[120px] lg:min-h-[140px]`}
               >
-                <div className={`inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full mb-2 sm:mb-3 lg:mb-4 transition-all duration-300 group-hover:scale-110 group-hover:animate-pulse ${highlight.color} bg-current/10`}>
-                  <IconComponent className={`w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 ${highlight.color} transition-transform duration-300 group-hover:scale-125`} />
+                <div className={`inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 xl:w-16 xl:h-16 rounded-full mb-1 sm:mb-2 lg:mb-3 xl:mb-4 transition-all duration-300 group-hover:scale-110 group-hover:animate-pulse ${highlight.color} bg-current/10`}>
+                  <IconComponent className={`w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 xl:w-8 xl:h-8 ${highlight.color} transition-transform duration-300 group-hover:scale-125`} />
                 </div>
-                <h3 className="font-montserrat font-semibold mb-1 sm:mb-2 text-xs sm:text-sm lg:text-base text-luxury-charcoal">
+                <h3 className="font-montserrat font-semibold mb-0.5 sm:mb-1 lg:mb-2 text-[10px] sm:text-xs lg:text-sm xl:text-base text-luxury-charcoal leading-tight">
                   {highlight.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-muted-foreground leading-tight">
+                <p className="text-[8px] sm:text-xs lg:text-sm text-muted-foreground leading-tight">
                   {highlight.description}
                 </p>
               </Card>
