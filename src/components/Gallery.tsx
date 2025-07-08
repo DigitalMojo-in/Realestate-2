@@ -52,26 +52,26 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
               {/* Hover Navigation Arrows */}
               <button 
                 onClick={prevImage} 
-                className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black/80 hover:scale-110"
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black/80 hover:scale-105"
               >
-                <ChevronLeft className="w-4 h-4" />
+                <ChevronLeft className="w-3 h-3" />
               </button>
               <button 
                 onClick={nextImage} 
-                className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black/80 hover:scale-110"
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black/80 hover:scale-105"
               >
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-3 h-3" />
               </button>
               
               {/* Dot Indicators */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-1.5">
                 {images.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrent(index)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
                       current === index 
-                        ? 'bg-luxury-gold shadow-md' 
+                        ? 'bg-luxury-gold shadow-sm' 
                         : 'bg-white/60 hover:bg-white/80'
                     }`}
                   />
