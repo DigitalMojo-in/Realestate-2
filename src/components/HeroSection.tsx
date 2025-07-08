@@ -31,20 +31,18 @@ const HeroSection = ({ onLeadFormOpen }: HeroSectionProps) => {
   return (
     <section className="relative h-[85vh] w-full overflow-hidden mt-16">
       {/* Image Slider */}
-      <div className="absolute inset-0">
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <img
-              src={image}
-              alt={`Luxury apartment view ${index + 1}`}
-              className="w-full h-full object-cover"
-            />
-          </div>
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-1 z-10">
+  {images.map((_, index) => (
+    <button
+      key={index}
+      onClick={() => setCurrentSlide(index)}
+      className={`w-1.5 h-1.5 rounded-full transition-all duration-300 
+        ${index === currentSlide 
+          ? 'bg-luxury-gold scale-100' 
+          : 'bg-white/30 hover:bg-white/50 scale-90'}`}
+    />
+  ))}
+</div>
         ))}
       </div>
 
