@@ -5,8 +5,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ChevronLeft, ChevronRight, Download } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import gallery1 from '@/assets/gallery-1.jpg';
-import gallery2 from '@/assets/gallery-2.jpg';
-import gallery3 from '@/assets/gallery-3.jpg';
+gallery2 from '@/assets/gallery-2.jpg';
+gallery3 from '@/assets/gallery-3.jpg';
 
 interface GalleryProps {
   onLeadFormOpen: () => void;
@@ -42,30 +42,30 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
     <section ref={sectionRef} className="py-16 bg-white scroll-animate">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-            Gallery & <span className="text-yellow-600">Floor Plans</span>
+          <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-4">
+            Gallery & <span className="text-luxury-gold">Floor Plans</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Explore our premium interiors and thoughtfully designed floor plans
           </p>
         </div>
 
         <div className="flex flex-col gap-10 lg:grid lg:grid-cols-2 lg:gap-12">
           {/* Image Gallery */}
-          <div>
+          <div className="scroll-animate-left stagger-delay-1">
             <h3 className="font-montserrat text-xl font-semibold mb-4 text-gray-800">Premium Interiors</h3>
-            <Card className="overflow-hidden shadow-lg">
+            <Card className="overflow-hidden shadow-lg transform transition-all duration-500 hover:scale-105">
               <div className="relative h-64 sm:h-80 md:h-96">
                 <img 
                   src={images[currentImage].src} 
                   alt={images[currentImage].title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-all duration-700"
                 />
 
-                <button onClick={prevImage} className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 text-white rounded-full p-2">
+                <button onClick={prevImage} className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 text-white rounded-full p-2 hover:bg-black/70">
                   <ChevronLeft className="w-5 h-5" />
                 </button>
-                <button onClick={nextImage} className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 text-white rounded-full p-2">
+                <button onClick={nextImage} className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 text-white rounded-full p-2 hover:bg-black/70">
                   <ChevronRight className="w-5 h-5" />
                 </button>
 
@@ -81,7 +81,7 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
                 <button
                   key={index}
                   onClick={() => setCurrentImage(index)}
-                  className={`flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden border-2 ${index === currentImage ? 'border-yellow-500' : 'border-transparent'}`}
+                  className={`flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden border-2 transition-all ${index === currentImage ? 'border-luxury-gold shadow' : 'border-transparent hover:border-luxury-gold/50'}`}
                 >
                   <img src={image.src} alt={image.title} className="w-full h-full object-cover" />
                 </button>
@@ -90,12 +90,12 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
           </div>
 
           {/* Floor Plans */}
-          <div>
+          <div className="scroll-animate-right stagger-delay-2">
             <h3 className="font-montserrat text-xl font-semibold mb-4 text-gray-800">Floor Plans</h3>
             <Tabs defaultValue="2bhk" className="w-full">
-              <TabsList className="grid grid-cols-2 gap-2 bg-gold-100 p-1 rounded-lg mb-4">
-                <TabsTrigger value="2bhk" className="font-semibold">2 BHK</TabsTrigger>
-                <TabsTrigger value="3bhk" className="font-semibold">3 BHK</TabsTrigger>
+              <TabsList className="flex gap-4 justify-start bg-gray-100 rounded-lg mb-4 px-2 py-1 overflow-x-auto">
+                <TabsTrigger value="2bhk" className="px-4 py-2 rounded-md text-sm font-semibold text-gray-700 bg-yellow-300 focus:outline-none">2 BHK</TabsTrigger>
+                <TabsTrigger value="3bhk" className="px-4 py-2 rounded-md text-sm font-semibold text-gray-700 bg-yellow-100 focus:outline-none">3 BHK</TabsTrigger>
               </TabsList>
 
               {Object.entries(floorPlans).map(([key, plan]) => (
@@ -104,11 +104,11 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
                     <h4 className="font-montserrat text-lg font-semibold mb-2 text-gray-800">{plan.title}</h4>
                     <p className="text-yellow-600 font-medium mb-4 text-base">{plan.area}</p>
 
-                    <div className="h-40 bg-gray-100 rounded-lg mb-4 flex items-center justify-center border border-gray-300">
-                      <p className="text-sm text-gray-500">Floor Plan Preview</p>
+                    <div className="h-40 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
+                      <p className="text-gray-500 text-sm font-medium">Floor Plan Preview</p>
                     </div>
 
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-6 text-gray-700 list-disc pl-5">
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 list-disc pl-5 text-sm text-gray-700">
                       {plan.features.map((feature, index) => (
                         <li key={index}>{feature}</li>
                       ))}
@@ -117,7 +117,7 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
                     <Button 
                       variant="cta" 
                       size="lg" 
-                      className="w-full text-sm h-12 bg-yellow-500 text-white hover:bg-yellow-600"
+                      className="w-full text-sm h-12 bg-yellow-400 hover:bg-yellow-500 text-black"
                       onClick={onLeadFormOpen}
                     >
                       <Download className="w-4 h-4 mr-2" />
