@@ -1,54 +1,101 @@
 import { Button } from '@/components/ui/button';
+import { Menu } from 'lucide-react';
+import { useState } from 'react';
 
 interface HeaderProps {
   onLeadFormOpen: () => void;
 }
 
 const Header = ({ onLeadFormOpen }: HeaderProps) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200/50">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        {/* Brand Section */}
+
+        {/* Logo & Brand Name */}
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-gradient-to-br from-luxury-gold to-accent rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">L</span>
+          <div className="w-9 h-9 bg-gradient-to-br from-luxury-gold to-accent rounded-xl flex items-center justify-center">
+            <span className="text-white font-bold text-base">L</span>
           </div>
-          <div>
-            <h1 className="font-montserrat font-bold text-lg text-luxury-charcoal">LuxeVista</h1>
-            <p className="text-xs text-gray-600 font-light">Premium Living</p>
+          <div className="leading-tight">
+            <h1 className="font-montserrat font-extrabold text-lg text-gray-800">LuxeVista</h1>
+            <p className="text-xs text-gray-500 tracking-wide">Premium Living</p>
           </div>
         </div>
 
-        {/* Navigation Menu */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <a href="#home" className="text-gray-700 hover:text-luxury-gold transition-colors font-medium text-sm">Home</a>
-          <a href="#overview" className="text-gray-700 hover:text-luxury-gold transition-colors font-medium text-sm">Overview</a>
-          <a href="#gallery" className="text-gray-700 hover:text-luxury-gold transition-colors font-medium text-sm">Gallery</a>
-          <a href="#amenities" className="text-gray-700 hover:text-luxury-gold transition-colors font-medium text-sm">Amenities</a>
-          <a href="#location" className="text-gray-700 hover:text-luxury-gold transition-colors font-medium text-sm">Location</a>
-          <a href="#contact" className="text-gray-700 hover:text-luxury-gold transition-colors font-medium text-sm">Contact</a>
+        {/* Mobile Menu Toggle */}
+        <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <Menu className="w-6 h-6 text-gray-700" />
+        </button>
+
+        {/* Navigation - Desktop */}
+        <nav className="hidden md:flex items-center space-x-6">
+          {['Home', 'Overview', 'Gallery', 'Amenities', 'Location', 'Contact'].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="text-gray-600 hover:text-luxury-gold font-medium text-sm transition-colors"
+            >
+              {item}
+            </a>
+          ))}
         </nav>
 
-        {/* CTA Buttons */}
-        <div className="flex items-center space-x-2">
-          <Button 
-            variant="ghost" 
+        {/* CTA - Desktop */}
+        <div className="hidden md:flex items-center space-x-3">
+          <Button
+            variant="ghost"
             size="sm"
             onClick={onLeadFormOpen}
-            className="hidden sm:flex font-montserrat font-medium text-sm px-4"
+            className="font-montserrat font-medium text-sm"
           >
             Enquire Now
           </Button>
-          <Button 
-            variant="luxury" 
+          <Button
+            variant="luxury"
             size="sm"
             onClick={onLeadFormOpen}
-            className="font-montserrat font-semibold text-sm px-4"
+            className="font-montserrat font-semibold text-sm"
           >
             Download Brochure
           </Button>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMenuOpen && (
+        <div className="md:hidden px-4 pb-4 pt-2 space-y-3 bg-white shadow-md border-t border-gray-100">
+          {['Home', 'Overview', 'Gallery', 'Amenities', 'Location', 'Contact'].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="block text-gray-700 hover:text-luxury-gold font-medium text-sm"
+            >
+              {item}
+            </a>
+          ))}
+
+          <div className="flex flex-col gap-2 pt-3">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onLeadFormOpen}
+              className="font-montserrat font-medium text-sm"
+            >
+              Enquire Now
+            </Button>
+            <Button
+              variant="luxury"
+              size="sm"
+              onClick={onLeadFormOpen}
+              className="font-montserrat font-semibold text-sm"
+            >
+              Download Brochure
+            </Button>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
