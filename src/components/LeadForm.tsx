@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { X } from 'lucide-react';
@@ -113,17 +113,10 @@ const LeadForm = ({ isOpen, onClose, variant = 'inline' }: LeadFormProps) => {
       <Dialog open={isOpen} onOpenChange={onClose}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <div className="flex items-center justify-between">
-              <DialogTitle className="font-montserrat text-xl">Get Instant Details</DialogTitle>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={onClose}
-                className="h-6 w-6 rounded-full"
-              >
-                <X className="h-4 w-4" />
-              </Button>
-            </div>
+            <DialogTitle className="font-montserrat text-xl">Get Instant Details</DialogTitle>
+            <DialogDescription className="text-muted-foreground">
+              Fill the form below to receive floor plans, pricing details, and exclusive offers for this luxury project.
+            </DialogDescription>
           </DialogHeader>
           <FormContent />
         </DialogContent>

@@ -83,14 +83,14 @@ const HeroSection = ({ onLeadFormOpen }: HeroSectionProps) => {
       {/* Content */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
         <div className="text-center text-white px-4 max-w-4xl mx-auto">
-          <h1 className="font-montserrat text-4xl md:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in-up">
+          <h1 className="font-montserrat text-4xl md:text-6xl lg:text-7xl font-bold mb-4 animate-slide-up">
             Live the Lifestyle <br />
-            <span className="text-luxury-gold">You Deserve</span>
+            <span className="text-luxury-gold animate-pulse-glow">You Deserve</span>
           </h1>
-          <p className="text-lg md:text-xl lg:text-2xl mb-8 opacity-90 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+          <p className="text-lg md:text-xl lg:text-2xl mb-8 opacity-90 animate-slide-up" style={{animationDelay: '0.3s'}}>
             2 & 3 BHK Luxury Apartments | Gated Community | Prime Location
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{animationDelay: '0.6s'}}>
             <Button 
               variant="cta" 
               size="xl"

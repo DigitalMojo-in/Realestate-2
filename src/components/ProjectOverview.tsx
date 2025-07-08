@@ -20,7 +20,7 @@ const ProjectOverview = ({ onLeadFormOpen }: ProjectOverviewProps) => {
             </div>
             
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
+              <div className="animate-slide-in-left">
                 <div className="mb-6">
                   <h3 className="font-montserrat text-2xl font-bold text-luxury-charcoal mb-2">
                     Welcome to <span className="text-luxury-gold">Premium Living</span>
@@ -73,8 +73,8 @@ const ProjectOverview = ({ onLeadFormOpen }: ProjectOverviewProps) => {
                 </Button>
               </div>
               
-              <div className="space-y-4">
-                <Card className="p-6 bg-primary text-white relative overflow-hidden">
+              <div className="space-y-4 animate-slide-in-right">
+                <Card className="p-6 bg-primary text-white relative overflow-hidden hover:scale-105 transition-all duration-500 animate-scale-in" style={{animationDelay: '0.2s'}}>
                   <div className="absolute top-4 right-4">
                     <Star className="w-6 h-6 fill-current text-luxury-gold" />
                   </div>
@@ -83,7 +83,7 @@ const ProjectOverview = ({ onLeadFormOpen }: ProjectOverviewProps) => {
                   <div className="text-sm opacity-80 mt-1">Amenity Area</div>
                 </Card>
                 
-                <Card className="p-6 bg-luxury-charcoal text-white relative overflow-hidden">
+                <Card className="p-6 bg-luxury-charcoal text-white relative overflow-hidden hover:scale-105 transition-all duration-500 animate-scale-in" style={{animationDelay: '0.4s'}}>
                   <div className="absolute top-4 right-4">
                     <Star className="w-6 h-6 fill-current text-luxury-gold" />
                   </div>
@@ -92,7 +92,7 @@ const ProjectOverview = ({ onLeadFormOpen }: ProjectOverviewProps) => {
                   <div className="text-sm opacity-80 mt-1">Apartments</div>
                 </Card>
                 
-                <Card className="p-6 accent-gradient text-luxury-charcoal relative overflow-hidden">
+                <Card className="p-6 accent-gradient text-luxury-charcoal relative overflow-hidden hover:scale-105 transition-all duration-500 animate-scale-in" style={{animationDelay: '0.6s'}}>
                   <div className="absolute top-4 right-4">
                     <Star className="w-6 h-6 fill-current text-luxury-charcoal" />
                   </div>
