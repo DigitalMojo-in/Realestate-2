@@ -93,7 +93,7 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
           <div>
             <h3 className="font-montserrat text-xl font-semibold mb-4 text-gray-800">Floor Plans</h3>
             <Tabs defaultValue="2bhk" className="w-full">
-              <TabsList className="grid grid-cols-2 gap-2 bg-gray-100 p-1 rounded-lg mb-4">
+              <TabsList className="grid grid-cols-2 gap-2 bg-gold-100 p-1 rounded-lg mb-4">
                 <TabsTrigger value="2bhk" className="font-semibold">2 BHK</TabsTrigger>
                 <TabsTrigger value="3bhk" className="font-semibold">3 BHK</TabsTrigger>
               </TabsList>
