@@ -29,7 +29,7 @@ const HeroSection = ({ onLeadFormOpen }: HeroSectionProps) => {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden mt-16">
+    <section className="relative h-[85vh] w-full overflow-hidden mt-16">
       {/* Image Slider */}
       <div className="absolute inset-0">
         {images.map((image, index) => (
@@ -49,32 +49,32 @@ const HeroSection = ({ onLeadFormOpen }: HeroSectionProps) => {
       </div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 hero-gradient" />
+      <div className="absolute inset-0 bg-black/30" />
 
       {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/10 hover:bg-black/20 backdrop-blur-sm rounded-full p-2 transition-all duration-300 hover:scale-110 z-20"
+        className="absolute left-2 top-1/2 -translate-y-1/2 p-1 z-20 hover:scale-105 transition-all"
       >
-        <ChevronLeft className="w-4 h-4 text-white" />
+        <ChevronLeft className="w-3 h-3 text-white/80" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/10 hover:bg-black/20 backdrop-blur-sm rounded-full p-2 transition-all duration-300 hover:scale-110 z-20"
+        className="absolute right-2 top-1/2 -translate-y-1/2 p-1 z-20 hover:scale-105 transition-all"
       >
-        <ChevronRight className="w-4 h-4 text-white" />
+        <ChevronRight className="w-3 h-3 text-white/80" />
       </button>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-1.5 z-10">
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-1 z-10">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
+            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
               index === currentSlide 
-                ? 'bg-luxury-gold shadow-accent' 
-                : 'bg-white/30 active:bg-white/50'
+                ? 'bg-luxury-gold' 
+                : 'bg-white/30 hover:bg-white/50'
             }`}
           />
         ))}
@@ -82,28 +82,28 @@ const HeroSection = ({ onLeadFormOpen }: HeroSectionProps) => {
 
       {/* Content */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
-        <div className="text-center text-white px-4 max-w-4xl mx-auto animate-fade-in-up">
-          <h1 className="font-montserrat text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 animate-slide-up leading-tight">
+        <div className="text-center text-white px-4 max-w-3xl mx-auto animate-fade-in-up">
+          <h1 className="font-montserrat text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
             Live the Lifestyle <br />
-            <span className="text-luxury-gold block mt-2">You Deserve</span>
+            <span className="text-luxury-gold block mt-1">You Deserve</span>
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 opacity-90 animate-slide-up font-light px-2" style={{animationDelay: '0.3s'}}>
+          <p className="text-base sm:text-lg mb-6 opacity-90 font-light px-2">
             2 & 3 BHK Luxury Apartments | Gated Community | Prime Location
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-slide-up px-4 sm:px-0" style={{animationDelay: '0.6s'}}>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center px-4 sm:px-0">
             <Button 
               variant="cta" 
-              size="xl"
+              size="lg"
               onClick={onLeadFormOpen}
-              className="text-base sm:text-lg w-full sm:w-auto transform transition-all duration-300 hover:scale-105 active:scale-95"
+              className="text-sm sm:text-base w-full sm:w-auto"
             >
               Book Site Visit
             </Button>
             <Button 
               variant="hero" 
-              size="xl"
+              size="lg"
               onClick={onLeadFormOpen}
-              className="text-base sm:text-lg w-full sm:w-auto transform transition-all duration-300 hover:scale-105 active:scale-95"
+              className="text-sm sm:text-base w-full sm:w-auto"
             >
               Download Brochure
             </Button>
