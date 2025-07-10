@@ -1,147 +1,146 @@
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Award, Shield, Users, Building, Clock } from 'lucide-react';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { Award, Building, Users, TrendingUp } from 'lucide-react';
 
 const WhyThisProject = () => {
-  const sectionRef = useScrollAnimation();
-  
-  const usps = [
+  const achievements = [
     {
-      icon: <CheckCircle className="w-6 h-6 text-luxury-gold" />,
-      title: "RERA Approved",
-      description: "Project registered under RERA (AP-RERA-12345) ensuring transparency and timely delivery"
+      icon: Building,
+      number: '25+',
+      label: 'Years of Excellence',
+      description: 'Trusted developer with proven track record'
     },
     {
-      icon: <Clock className="w-6 h-6 text-luxury-gold" />,
-      title: "On-Time Delivery",
-      description: "Track record of delivering 15+ projects on schedule with zero delays"
+      icon: Users,
+      number: '50,000+',
+      label: 'Happy Families',
+      description: 'Across 100+ successful projects'
     },
     {
-      icon: <Award className="w-6 h-6 text-luxury-gold" />,
-      title: "Award-Winning Builder",
-      description: "Recognized as 'Best Residential Developer' by Times Property Awards 2023"
+      icon: Award,
+      number: '15+',
+      label: 'Industry Awards',
+      description: 'Recognition for quality and innovation'
     },
     {
-      icon: <Shield className="w-6 h-6 text-luxury-gold" />,
-      title: "Quality Assurance",
-      description: "Premium branded fittings from Kohler, Hafele, and other international brands"
-    },
-    {
-      icon: <Building className="w-6 h-6 text-luxury-gold" />,
-      title: "25+ Years Experience",
-      description: "Established builder with expertise in luxury residential developments"
-    },
-    {
-      icon: <Users className="w-6 h-6 text-luxury-gold" />,
-      title: "5000+ Happy Families",
-      description: "Delivered premium homes to thousands of satisfied customers across Bangalore"
+      icon: TrendingUp,
+      number: '40%',
+      label: 'Average Appreciation',
+      description: 'In property value over 3 years'
     }
   ];
 
-  const awards = [
-    "Best Residential Project 2023",
-    "Excellence in Construction Quality",
-    "Customer Satisfaction Award",
-    "Green Building Initiative"
+  const keyProjects = [
+    {
+      name: 'Prestige Lake Ridge',
+      location: 'Whitefield',
+      units: '850 Units',
+      status: 'Delivered'
+    },
+    {
+      name: 'Prestige Shantiniketan',
+      location: 'Whitefield',
+      units: '2,400 Units',
+      status: 'Delivered'
+    },
+    {
+      name: 'Prestige Sunrise Park',
+      location: 'Electronic City',
+      units: '1,200 Units',
+      status: 'Delivered'
+    }
   ];
 
   return (
-    <section ref={sectionRef} className="py-16 bg-luxury-cream scroll-animate">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-4">
-            Why Choose <span className="text-luxury-gold">This Project</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">
+            Why Choose Prestige Group
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Trust, quality, and excellence - the pillars of our commitment to you
+          <p className="text-lg text-brand-muted max-w-2xl mx-auto">
+            A legacy of trust, quality, and excellence in real estate development since 1986
           </p>
         </div>
 
-        {/* RERA Badge */}
-        <div className="text-center mb-12 scroll-animate-scale stagger-delay-1">
-          <Card className="inline-block p-6 luxury-gradient text-white shadow-luxury transform transition-all duration-500 hover:scale-110">
-            <Shield className="w-12 h-12 mx-auto mb-3 text-luxury-gold animate-pulse" />
-            <h3 className="font-montserrat font-bold text-xl mb-2">RERA APPROVED</h3>
-            <p className="text-white/90">Registration No: AP-RERA-12345</p>
-            <Badge variant="secondary" className="mt-2 bg-white/20 text-white border-white/30">
-              ✓ Verified & Trusted
-            </Badge>
-          </Card>
-        </div>
-
-        {/* USPs Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {usps.map((usp, index) => (
-            <Card 
-              key={index}
-              className={`p-6 shadow-card hover:shadow-luxury transition-all duration-500 hover:scale-105 group scroll-animate-scale stagger-delay-${Math.min(index + 2, 6)}`}
-            >
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 transition-transform duration-300 group-hover:scale-125">
-                  {usp.icon}
-                </div>
-                <div>
-                  <h3 className="font-montserrat font-semibold mb-2 transition-colors duration-300 group-hover:text-luxury-gold">{usp.title}</h3>
-                  <p className="text-sm text-muted-foreground">{usp.description}</p>
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
-
-        {/* Builder Trust Section */}
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Builder Info */}
-          <Card className="p-8 shadow-luxury scroll-animate-left stagger-delay-1 transform transition-all duration-500 hover:scale-105">
-            <div className="text-center mb-6">
-              <Building className="w-16 h-16 text-luxury-gold mx-auto mb-4 transition-transform duration-300 hover:scale-125" />
-              <h3 className="font-montserrat text-2xl font-bold mb-2">Premium Developers</h3>
-              <p className="text-muted-foreground">Building dreams since 1998</p>
-            </div>
-
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          {/* Developer Story */}
+          <div className="space-y-6">
             <div className="space-y-4">
-              <div className="flex justify-between items-center group transition-all duration-300 hover:bg-luxury-gold/10 p-2 rounded">
-                <span>Projects Completed</span>
-                <span className="font-bold text-luxury-gold transition-transform duration-300 group-hover:scale-125">50+</span>
-              </div>
-              <div className="flex justify-between items-center group transition-all duration-300 hover:bg-luxury-gold/10 p-2 rounded">
-                <span>Happy Families</span>
-                <span className="font-bold text-luxury-gold transition-transform duration-300 group-hover:scale-125">5,000+</span>
-              </div>
-              <div className="flex justify-between items-center group transition-all duration-300 hover:bg-luxury-gold/10 p-2 rounded">
-                <span>Sq.Ft Delivered</span>
-                <span className="font-bold text-luxury-gold transition-transform duration-300 group-hover:scale-125">2.5M+</span>
-              </div>
-              <div className="flex justify-between items-center group transition-all duration-300 hover:bg-luxury-gold/10 p-2 rounded">
-                <span>Years of Excellence</span>
-                <span className="font-bold text-luxury-gold transition-transform duration-300 group-hover:scale-125">25+</span>
-              </div>
-            </div>
-          </Card>
-
-          {/* Awards & Recognition */}
-          <Card className="p-8 shadow-card scroll-animate-right stagger-delay-2 transform transition-all duration-500 hover:shadow-luxury">
-            <div className="text-center mb-6">
-              <Award className="w-16 h-16 text-luxury-gold mx-auto mb-4 transition-transform duration-300 hover:rotate-12" />
-              <h3 className="font-montserrat text-2xl font-bold mb-2">Awards & Recognition</h3>
-              <p className="text-muted-foreground">Industry recognition for excellence</p>
+              <h3 className="text-2xl font-semibold text-brand-text">
+                A Heritage of Excellence
+              </h3>
+              <p className="text-brand-muted leading-relaxed">
+                Prestige Group is a pioneering real estate developer with over three decades of excellence in creating landmark developments across India. Founded by Mr. Razack Sattar, the group has consistently delivered projects that redefine luxury living and commercial spaces.
+              </p>
+              <p className="text-brand-muted leading-relaxed">
+                With a strong presence in Bangalore, Chennai, Hyderabad, Kochi, and Goa, Prestige Group has developed over 250 projects covering more than 150 million square feet of prime real estate.
+              </p>
             </div>
 
-            <div className="space-y-3">
-              {awards.map((award, index) => (
-                <div key={index} className="flex items-center space-x-3 p-3 bg-luxury-cream rounded-lg transition-all duration-300 hover:bg-luxury-gold/20 hover:scale-105">
-                  <Award className="w-5 h-5 text-luxury-gold flex-shrink-0 transition-transform duration-300 hover:rotate-12" />
-                  <span className="text-sm font-medium">{award}</span>
+            {/* Key Projects */}
+            <div>
+              <h4 className="text-lg font-semibold text-brand-text mb-4">Notable Delivered Projects</h4>
+              <div className="space-y-3">
+                {keyProjects.map((project, index) => (
+                  <div key={index} className="flex items-center justify-between p-3 bg-brand-surface rounded-lg">
+                    <div>
+                      <h5 className="font-medium text-brand-text">{project.name}</h5>
+                      <p className="text-sm text-brand-muted">{project.location} • {project.units}</p>
+                    </div>
+                    <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
+                      {project.status}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Achievements Grid */}
+          <div className="grid grid-cols-2 gap-6">
+            {achievements.map((achievement, index) => (
+              <div key={index} className="text-center p-6 bg-brand-surface rounded-lg">
+                <div className="w-12 h-12 bg-brand-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <achievement.icon className="w-6 h-6 text-brand-primary" />
                 </div>
-              ))}
-            </div>
+                <div className="text-3xl font-bold text-brand-primary mb-1">
+                  {achievement.number}
+                </div>
+                <div className="font-semibold text-brand-text mb-2">
+                  {achievement.label}
+                </div>
+                <div className="text-sm text-brand-muted">
+                  {achievement.description}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
-            <div className="mt-6 p-4 luxury-gradient text-white rounded-lg text-center transform transition-all duration-300 hover:scale-105">
-              <p className="font-montserrat font-semibold">Your Trust, Our Commitment</p>
-              <p className="text-sm text-white/90 mt-1">Building quality homes with integrity since 1998</p>
+        {/* RERA & Compliance */}
+        <div className="bg-brand-surface rounded-lg p-8">
+          <div className="text-center mb-6">
+            <h3 className="text-xl font-semibold text-brand-text mb-2">
+              RERA Compliance & Legal Transparency
+            </h3>
+            <p className="text-brand-muted">
+              Fully compliant with Real Estate Regulatory Authority guidelines
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div>
+              <h4 className="font-semibold text-brand-text mb-1">RERA Registration</h4>
+              <p className="text-sm text-brand-muted">PRM/KA/RERA/1251/446/PR/171101/001908</p>
             </div>
-          </Card>
+            <div>
+              <h4 className="font-semibold text-brand-text mb-1">Bank Approval</h4>
+              <p className="text-sm text-brand-muted">All major banks & financial institutions</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-brand-text mb-1">Legal Clearance</h4>
+              <p className="text-sm text-brand-muted">Clear title, approved plans & NOCs</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
