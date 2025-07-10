@@ -71,7 +71,7 @@ const HeroSection = ({ onLeadFormOpen }: HeroSectionProps) => {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${
+            className={`w-0.25 h-0.25 sm:w-0.5 sm:h-0.5 rounded-full transition-all duration-300 ${
               index === currentSlide
                 ? 'bg-luxury-gold shadow-accent'
                 : 'bg-white/30 hover:bg-white/50'
