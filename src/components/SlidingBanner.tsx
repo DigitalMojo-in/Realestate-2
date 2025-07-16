@@ -57,7 +57,7 @@ const SlidingBanner = ({ onCTAClick }: SlidingBannerProps) => {
   };
 
   return (
-    <section className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] w-full overflow-hidden">
+    <section className="relative h-[70vh] sm:h-[80vh] w-full overflow-hidden">
       {/* Image Slider */}
       <div className="absolute inset-0">
         {slides.map((slide, index) => (
