@@ -1,93 +1,61 @@
-import { Card } from "@/components/ui/card";
-import { CheckCircle, Building2, Car, Waves, MapPin, Shield, Zap, Users } from 'lucide-react';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { Shield, Award, Leaf, Car, Wifi, Dumbbell } from 'lucide-react';
 
 const ProjectHighlights = () => {
-  const sectionRef = useScrollAnimation();
-  
   const highlights = [
     {
-      icon: CheckCircle,
-      title: "Vastu Compliant",
-      description: "Designed as per ancient principles",
-      color: "text-emerald-500"
-    },
-    {
-      icon: Building2,
-      title: "50,000 sq. ft Clubhouse",
-      description: "Premium amenities & facilities",
-      color: "text-blue-500"
-    },
-    {
-      icon: Users,
-      title: "Mini Theatre",
-      description: "Private screening experience",
-      color: "text-purple-500"
-    },
-    {
-      icon: Zap,
-      title: "EV Charging",
-      description: "Future-ready infrastructure",
-      color: "text-yellow-500"
-    },
-    {
-      icon: MapPin,
-      title: "Near IT Hubs",
-      description: "5-10 mins to major tech parks",
-      color: "text-orange-500"
-    },
-    {
       icon: Shield,
-      title: "24/7 Security",
-      description: "Gated community with surveillance",
-      color: "text-red-500"
+      title: 'RERA Approved',
+      description: 'Fully compliant project with RERA registration'
     },
     {
-      icon: Waves,
-      title: "Swimming Pool",
-      description: "Resort-style aquatic facilities",
-      color: "text-cyan-500"
+      icon: Award,
+      title: 'Premium Developer',
+      description: '20+ years of excellence in real estate'
+    },
+    {
+      icon: Leaf,
+      title: 'Vastu Compliant',
+      description: 'Designed as per Vastu principles for prosperity'
     },
     {
       icon: Car,
-      title: "2-Level Parking",
-      description: "Ample covered parking space",
-      color: "text-indigo-500"
+      title: 'Smart Parking',
+      description: 'Automated multi-level car parking system'
+    },
+    {
+      icon: Wifi,
+      title: 'Smart Homes',
+      description: 'IoT enabled apartments with home automation'
+    },
+    {
+      icon: Dumbbell,
+      title: 'Premium Clubhouse',
+      description: '50,000 sq.ft clubhouse with world-class amenities'
     }
   ];
 
   return (
-    <section id="highlight" ref={sectionRef} className="py-8 sm:py-12 lg:py-16 bg-background scroll-animate">
-      <div className="container mx-auto px-3 sm:px-4">
-        <div className="text-center mb-6 sm:mb-8 lg:mb-12">
-          <h2 className="font-montserrat text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-2 sm:mb-3 lg:mb-4">
-            Premium <span className="text-luxury-gold">Features</span>
+    <section className="py-16 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">
+            Why Choose Our Project
           </h2>
-          <p className="text-xs sm:text-sm lg:text-base xl:text-lg text-muted-foreground max-w-2xl mx-auto px-2 sm:px-4">
-            Experience luxury living with world-class amenities designed for your comfort and convenience
+          <p className="text-lg text-brand-muted max-w-2xl mx-auto">
+            Discover the unique features that make this project stand out from the rest
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-          {highlights.map((highlight, index) => {
-            const IconComponent = highlight.icon;
-            return (
-              <Card 
-                key={index}
-                className={`p-4 lg:p-6 text-center hover:shadow-luxury transition-all duration-500 hover:scale-105 group border-luxury-silver/30 scroll-animate-scale stagger-delay-${Math.min(index + 1, 6)} active:scale-95 min-h-[160px] lg:min-h-[140px]`}
-              >
-                <div className={`inline-flex items-center justify-center w-12 h-12 lg:w-16 lg:h-16 rounded-full mb-3 lg:mb-4 transition-all duration-300 group-hover:scale-110 ${highlight.color} bg-current/10`}>
-                  <IconComponent className={`w-6 h-6 lg:w-8 lg:h-8 ${highlight.color} transition-transform duration-300 group-hover:scale-125`} />
-                </div>
-                <h3 className="font-montserrat font-semibold mb-2 text-sm lg:text-base text-luxury-charcoal leading-tight">
-                  {highlight.title}
-                </h3>
-                <p className="text-xs lg:text-sm text-muted-foreground leading-tight">
-                  {highlight.description}
-                </p>
-              </Card>
-            );
-          })}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {highlights.map((highlight, index) => (
+            <div key={index} className="text-center group">
+              <div className="w-16 h-16 bg-brand-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-primary/20 transition-colors">
+                <highlight.icon className="w-8 h-8 text-brand-primary" />
+              </div>
+              <h3 className="text-xl font-semibold text-brand-text mb-2">{highlight.title}</h3>
+              <p className="text-brand-muted">{highlight.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -11,9 +11,29 @@ interface GalleryProps {
 }
 
 const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
+  const [currentSegment, setCurrentSegment] = useState('apartments');
   const [current, setCurrent] = useState(0);
 
-  const images = [gallery1, gallery2, gallery3];
+  const gallerySegments = {
+    apartments: {
+      title: 'Apartments',
+      images: [gallery1, gallery2, gallery3]
+    },
+    clubhouse: {
+      title: 'Club House',
+      images: [gallery2, gallery3, gallery1]
+    },
+    amenities: {
+      title: 'Amenities',
+      images: [gallery3, gallery1, gallery2]
+    },
+    exteriors: {
+      title: 'Exteriors',
+      images: [gallery1, gallery3, gallery2]
+    }
+  };
+
+  const currentImages = gallerySegments[currentSegment as keyof typeof gallerySegments].images;
   const floorPlans = {
     '2bhk': {
       title: '2 BHK Apartment',
@@ -27,8 +47,13 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
     }
   };
 
-  const nextImage = () => setCurrent((prev) => (prev + 1) % images.length);
-  const prevImage = () => setCurrent((prev) => (prev - 1 + images.length) % images.length);
+  const nextImage = () => setCurrent((prev) => (prev + 1) % currentImages.length);
+  const prevImage = () => setCurrent((prev) => (prev - 1 + currentImages.length) % currentImages.length);
+
+  const handleSegmentChange = (segment: string) => {
+    setCurrentSegment(segment);
+    setCurrent(0);
+  };
 
   return (
     <section className="py-16 bg-white text-gray-900">
@@ -40,13 +65,26 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
           </p>
         </div>
 
+        {/* Gallery Segments Tabs */}
+        <div className="mb-8">
+          <Tabs value={currentSegment} onValueChange={handleSegmentChange}>
+            <TabsList className="grid grid-cols-2 md:grid-cols-4 w-full max-w-2xl mx-auto">
+              {Object.entries(gallerySegments).map(([key, segment]) => (
+                <TabsTrigger key={key} value={key} className="text-sm">
+                  {segment.title}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </Tabs>
+        </div>
+
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Gallery */}
           <div id="gallery" className="w-full lg:w-1/2">
             <div className="relative overflow-hidden rounded-lg shadow-lg group">
               <img
-                src={images[current]}
-                alt={`Gallery ${current + 1}`}
+                src={currentImages[current]}
+                alt={`${gallerySegments[currentSegment as keyof typeof gallerySegments].title} ${current + 1}`}
                 className="w-full h-80 object-cover"
               />
               {/* Hover Navigation Arrows */}
@@ -65,7 +103,7 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
               
               {/* Dot Indicators */}
               <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex space-x-1.5">
-                {images.map((_, index) => (
+                {currentImages.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrent(index)}
@@ -79,11 +117,11 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
               </div>
             </div>
             <div className="flex gap-2 mt-4 overflow-x-auto">
-              {images.map((img, i) => (
+              {currentImages.map((img, i) => (
                 <img
                   key={i}
                   src={img}
-                  alt={`Thumb ${i + 1}`}
+                  alt={`${gallerySegments[currentSegment as keyof typeof gallerySegments].title} Thumb ${i + 1}`}
                   onClick={() => setCurrent(i)}
                   className={`w-20 h-16 object-cover rounded-lg cursor-pointer border-2 ${current === i ? 'border-black' : 'border-transparent'}`}
                 />
