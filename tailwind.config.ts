@@ -63,18 +63,6 @@ export default {
 					cream: 'hsl(var(--luxury-cream))',
 					silver: 'hsl(var(--luxury-silver))',
 				},
-				// Real Estate Brand Colors
-				brand: {
-					primary: 'hsl(var(--color-primary))',
-					secondary: 'hsl(var(--color-secondary))',
-					accent: 'hsl(var(--color-accent))',
-					surface: 'hsl(var(--color-surface))',
-					text: 'hsl(var(--color-text))',
-					muted: 'hsl(var(--color-muted))',
-					border: 'hsl(var(--color-border))',
-					success: 'hsl(var(--color-success))',
-					warning: 'hsl(var(--color-warning))',
-				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

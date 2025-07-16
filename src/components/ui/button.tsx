@@ -22,9 +22,6 @@ const buttonVariants = cva(
         gold: "accent-gradient text-luxury-charcoal hover:scale-105 shadow-accent font-montserrat font-semibold",
         hero: "bg-white/10 text-white border border-white/20 hover:bg-white/20 backdrop-blur-sm hover:scale-105 font-montserrat font-semibold",
         cta: "luxury-gradient text-white hover:scale-105 shadow-luxury hover:shadow-accent font-montserrat font-bold tracking-wide",
-        brand: "bg-brand-primary hover:bg-brand-primary/90 text-white font-semibold transition-all duration-300 hover:scale-105",
-        brandOutline: "border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white transition-all duration-300",
-        brandGhost: "text-brand-primary hover:bg-brand-primary/10 transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",
