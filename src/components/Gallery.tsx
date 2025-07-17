@@ -78,7 +78,7 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
           </Tabs>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-12">
+        <div className="">
           {/* Gallery */}
           <div id="gallery" className="w-full lg:w-1/2">
             <div className="relative overflow-hidden rounded-lg shadow-lg group">
