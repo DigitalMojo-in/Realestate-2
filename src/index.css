@@ -125,6 +125,9 @@
 }
 
 @layer components {
+  html {
+    scroll-behavior: smooth;
+  }
   .luxury-gradient {
     background: var(--gradient-primary);
   }
