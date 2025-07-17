@@ -1,160 +1,136 @@
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight, Play, Star } from 'lucide-react';
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Star, ChevronLeft, ChevronRight, Quote, Play } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Testimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const sectionRef = useScrollAnimation();
 
   const testimonials = [
     {
-      id: 1,
-      name: 'Rajesh Kumar',
-      designation: 'Software Engineer',
-      location: 'Electronic City',
+      name: "Rajesh & Priya Sharma",
+      location: "3 BHK Owner",
       rating: 5,
-      text: 'The quality of construction and attention to detail is exceptional. The amenities are world-class and the location connectivity is perfect for my daily commute to Electronic City.',
-      image: '/lovable-uploads/283fd918-b0a7-4c6d-a18c-a1ca081a5092.png',
-      hasVideo: true,
-      videoThumbnail: '/lovable-uploads/283fd918-b0a7-4c6d-a18c-a1ca081a5092.png'
+      text: "The quality of construction and attention to detail is exceptional. Our family absolutely loves the spacious layout and premium amenities. The location is perfect for our daily commute to Electronic City.",
+      image: "👨‍👩‍👧‍👦"
     },
     {
-      id: 2,
-      name: 'Priya Sharma',
-      designation: 'Marketing Manager',
-      location: 'Koramangala',
+      name: "Ankit Patel",
+      location: "2 BHK Owner", 
       rating: 5,
-      text: 'Living here has been a dream come true. The clubhouse facilities are amazing and my kids love the play areas. The developer has delivered exactly what was promised.',
-      image: '/lovable-uploads/283fd918-b0a7-4c6d-a18c-a1ca081a5092.png',
-      hasVideo: false
+      text: "As a first-time home buyer, the team guided us through every step. The possession was on time and the apartment exceeded our expectations. Highly recommend this project!",
+      image: "👨‍💼"
     },
     {
-      id: 3,
-      name: 'Amit Patel',
-      designation: 'Business Owner',
-      location: 'Whitefield',
+      name: "Meera & Suresh Kumar",
+      location: "3 BHK Owner",
       rating: 5,
-      text: 'The investment value has already appreciated significantly. The build quality and amenities justify every penny spent. Highly recommend for both end-users and investors.',
-      image: '/lovable-uploads/283fd918-b0a7-4c6d-a18c-a1ca081a5092.png',
-      hasVideo: true,
-      videoThumbnail: '/lovable-uploads/283fd918-b0a7-4c6d-a18c-a1ca081a5092.png'
+      text: "The clubhouse facilities are world-class. Our kids love the play area and swimming pool. It truly feels like living in a resort. Great investment decision!",
+      image: "👫"
     }
   ];
 
-  const nextTestimonial = () => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  const prevTestimonial = () => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
 
-  const current = testimonials[currentTestimonial];
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
 
   return (
-    <section className="py-16 bg-white">
+    <section id="testimonial" ref={sectionRef} className="py-16 bg-background scroll-animate">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-brand-text mb-4">
-            What Our Residents Say
+          <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-4">
+            Real Stories, <span className="text-luxury-gold">Real Families</span>
           </h2>
-          <p className="text-lg text-brand-muted max-w-2xl mx-auto">
-            Real stories from real people who now call this place home
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Hear what our happy residents have to say about their luxury living experience
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Video/Image Section */}
-            <div className="relative">
-              {current.hasVideo ? (
-                <div className="relative aspect-video bg-gray-900 rounded-lg overflow-hidden group cursor-pointer">
-                  <img
-                    src={current.videoThumbnail}
-                    alt={`${current.name} testimonial`}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transition-colors">
-                      <Play className="w-6 h-6 text-white ml-1" fill="currentColor" />
-                    </div>
-                  </div>
-                  <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm rounded-lg px-3 py-1">
-                    <span className="text-white text-sm">Video Testimonial</span>
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Video Testimonials */}
+          <div className="scroll-animate-left stagger-delay-1">
+            <h3 className="font-montserrat text-xl font-semibold mb-6">Video Testimonials</h3>
+            <Card className="overflow-hidden shadow-luxury transform transition-all duration-500 hover:scale-105">
+              <div className="relative aspect-video bg-gradient-to-br from-luxury-charcoal to-luxury-navy group">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center text-white">
+                    <div className="text-4xl mb-4 animate-pulse">🎥</div>
+                    <h4 className="font-montserrat font-semibold mb-2">Customer Stories</h4>
+                    <p className="text-white/80 mb-4">Real families sharing their experience</p>
+                    <Button variant="secondary" size="lg" className="transform transition-all duration-300 group-hover:scale-110">
+                      <Play className="w-4 h-4 mr-2" />
+                      Watch Stories
+                    </Button>
                   </div>
                 </div>
-              ) : (
-                <div className="aspect-video bg-gradient-to-br from-brand-primary/10 to-brand-accent/10 rounded-lg flex items-center justify-center">
-                  <img
-                    src={current.image}
-                    alt={current.name}
-                    className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
-                  />
-                </div>
-              )}
-            </div>
-
-            {/* Testimonial Content */}
-            <div className="space-y-6">
-              {/* Rating */}
-              <div className="flex items-center space-x-1">
-                {[...Array(current.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" />
-                ))}
               </div>
-
-              {/* Quote */}
-              <blockquote className="text-lg text-brand-text leading-relaxed">
-                "{current.text}"
-              </blockquote>
-
-              {/* Author Info */}
-              <div className="space-y-1">
-                <h4 className="text-xl font-semibold text-brand-text">{current.name}</h4>
-                <p className="text-brand-muted">{current.designation}</p>
-                <p className="text-sm text-brand-muted">Relocated from {current.location}</p>
-              </div>
-
-              {/* Navigation */}
-              <div className="flex items-center justify-between pt-4">
-                <div className="flex space-x-2">
-                  {testimonials.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentTestimonial(index)}
-                      className={`w-3 h-3 rounded-full transition-colors ${
-                        index === currentTestimonial
-                          ? 'bg-brand-primary'
-                          : 'bg-gray-300 hover:bg-gray-400'
-                      }`}
-                    />
-                  ))}
+            </Card>
+            
+            {/* Video Thumbnails */}
+            <div className="flex space-x-3 mt-4">
+              {[1, 2, 3].map((_, index) => (
+                <div key={index} className="w-24 h-16 bg-luxury-cream rounded-lg flex items-center justify-center cursor-pointer hover:shadow-card transition-all duration-300 hover:scale-110">
+                  <span className="text-2xl transition-transform duration-300 hover:scale-125">👨‍👩‍👧‍👦</span>
                 </div>
-
-                <div className="flex space-x-2">
-                  <button
-                    onClick={prevTestimonial}
-                    className="w-10 h-10 rounded-full border border-brand-border hover:bg-brand-primary hover:text-white hover:border-brand-primary transition-colors flex items-center justify-center"
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                  <button
-                    onClick={nextTestimonial}
-                    className="w-10 h-10 rounded-full border border-brand-border hover:bg-brand-primary hover:text-white hover:border-brand-primary transition-colors flex items-center justify-center"
-                  >
-                    <ChevronRight className="w-5 h-5" />
-                  </button>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
-          {/* CTA Section */}
-          <div className="text-center mt-12 p-6 bg-brand-surface rounded-lg">
-            <h3 className="text-xl font-semibold text-brand-text mb-2">
-              Join Our Happy Residents Community
-            </h3>
-            <p className="text-brand-muted mb-4">
-              Schedule a visit and see why families choose us for their dream home
-            </p>
-            <Button variant="cta" size="lg" className="px-8">
-              Book Your Site Visit Today
-            </Button>
+          {/* Text Testimonials Carousel */}
+          <div className="scroll-animate-right stagger-delay-2">
+            <h3 className="font-montserrat text-xl font-semibold mb-6">Customer Reviews</h3>
+            
+            <Card className="p-8 shadow-card min-h-[300px] relative transform transition-all duration-500 hover:shadow-luxury">
+              <Quote className="absolute top-4 right-4 w-8 h-8 text-luxury-gold/20 transition-opacity duration-300 hover:opacity-50" />
+              
+              <div className="flex items-center mb-4">
+                {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-luxury-gold text-luxury-gold animate-pulse" style={{animationDelay: `${i * 0.1}s`}} />
+                ))}
+              </div>
+              
+              <p className="text-lg leading-relaxed mb-6 text-foreground transition-all duration-500">
+                "{testimonials[currentTestimonial].text}"
+              </p>
+              
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="text-3xl transform transition-transform duration-300 hover:scale-125">{testimonials[currentTestimonial].image}</div>
+                  <div>
+                    <h4 className="font-montserrat font-semibold">{testimonials[currentTestimonial].name}</h4>
+                    <p className="text-sm text-muted-foreground">{testimonials[currentTestimonial].location}</p>
+                  </div>
+                </div>
+                
+                <div className="flex space-x-2">
+                  <Button variant="outline" size="icon" onClick={prevTestimonial} className="transform transition-all duration-300 hover:scale-110">
+                    <ChevronLeft className="w-4 h-4" />
+                  </Button>
+                  <Button variant="outline" size="icon" onClick={nextTestimonial} className="transform transition-all duration-300 hover:scale-110">
+                    <ChevronRight className="w-4 h-4" />
+                  </Button>
+                </div>
+              </div>
+            </Card>
+
+            {/* Testimonial Indicators */}
+            <div className="flex justify-center space-x-1.5 mt-4">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
+                  className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 active:scale-125 ${
+                    index === currentTestimonial ? 'bg-luxury-gold shadow-accent' : 'bg-luxury-silver active:bg-luxury-gold/50'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

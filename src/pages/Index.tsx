@@ -1,11 +1,6 @@
 import { useState } from 'react';
 import Header from '@/components/Header';
-import SlidingBanner from '@/components/SlidingBanner';
-import ImportantInfoBar from '@/components/ImportantInfoBar';
-import OpenForm from '@/components/OpenForm';
-import USPSection from '@/components/USPSection';
-import AmenitiesSection from '@/components/AmenitiesSection';
-import StickyBottomCTA from '@/components/StickyBottomCTA';
+import HeroSection from '@/components/HeroSection';
 import LeadForm from '@/components/LeadForm';
 import ProjectOverview from '@/components/ProjectOverview';
 import ProjectHighlights from '@/components/ProjectHighlights';
@@ -27,62 +22,47 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Premium Header with sticky navigation */}
+      {/* Premium Header */}
       <Header onLeadFormOpen={openLeadForm} />
       
-      {/* Above-the-Fold Section */}
-      {/* Sliding Banner with landscape creatives */}
-      <SlidingBanner onCTAClick={openLeadForm} />
+      {/* Hero Section with Image Slider */}
+      <HeroSection onLeadFormOpen={openLeadForm} />
       
-      {/* Important Info Bar - Sticky below header */}
-      <ImportantInfoBar onCTAClick={openLeadForm} />
+      {/* Instant Lead Form - Above the fold */}
+      <LeadForm variant="inline" />
       
-      {/* Open Form - Visible without scroll */}
-      <OpenForm variant="inline" />
-      
-      {/* Core Content Blocks */}
-      {/* Project Overview with inline blocks */}
+      {/* Project Overview - Like the reference */}
       <ProjectOverview onLeadFormOpen={openLeadForm} />
-      
-      {/* USP Section - Bullet list of advantages */}
-      <USPSection onCTAClick={openLeadForm} />
-      
-      {/* Amenities split by type */}
-      <AmenitiesSection onCTAClick={openLeadForm} />
       
       {/* Project Highlights Grid */}
       <ProjectHighlights />
       
-      {/* Specifications in accordions */}
-      <SpecificationsSection />
+      {/* Location Advantage with Map */}
+      <LocationAdvantage />
       
-      {/* Walk-through & Influencer Videos */}
-      <VideoSection />
-      
-      {/* Testimonials - Video + text slider */}
-      <Testimonials />
-      
-      {/* Gallery - Hi-res images carousel */}
+      {/* Gallery & Floor Plans */}
       <Gallery onLeadFormOpen={openLeadForm} />
       
-      {/* Location Proximity - Key landmarks */}
-      <LocationAdvantage />
+      {/* Specifications Section */}
+      <SpecificationsSection />
       
       {/* Premium Showcase Section */}
       <PremiumShowcaseSection onLeadFormOpen={openLeadForm} />
       
-      {/* About the Developer - Brief profile */}
+      {/* Video Walkthrough */}
+      <VideoSection />
+      
+      {/* Customer Testimonials */}
+      <Testimonials />
+      
+      {/* Why This Project / Builder Trust */}
       <WhyThisProject />
       
-      {/* Footer with Contact Info & Compliance */}
+      {/* Footer with Contact Info */}
       <Footer onLeadFormOpen={openLeadForm} />
       
-      {/* Conversion Devices & Sticky Elements */}
-      {/* Desktop Sticky FAB */}
+      {/* Sticky Floating CTAs */}
       <StickyFAB onLeadFormOpen={openLeadForm} />
-      
-      {/* Mobile Bottom Sticky Bar */}
-      <StickyBottomCTA onLeadFormOpen={openLeadForm} />
       
       {/* Lead Form Modal */}
       <LeadForm 
