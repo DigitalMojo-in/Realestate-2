@@ -1,125 +1,81 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Luxury Real Estate Design System - Premium Colors & Gradients */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
-
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 220 15% 25%;
-
+    --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
-    --card-foreground: 220 15% 25%;
-
+    --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 25%;
-
-    --primary: 220 15% 25%;
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 210 20% 98%;
-    --secondary-foreground: 220 15% 25%;
-
-    --muted: 210 20% 98%;
-    --muted-foreground: 215 15% 50%;
-
-    --accent: 45 93% 65%;
-    --accent-foreground: 220 15% 25%;
-
-    /* Real Estate Brand Color Tokens */
-    --color-primary: 25 95% 53%;        /* Orange #eb7311 */
-    --color-secondary: 200 95% 40%;     /* Blue accent */
-    --color-background: 0 0% 98%;       /* Off-white */
-    --color-surface: 0 0% 100%;         /* Pure white */
-    --color-text: 220 13% 18%;          /* Dark charcoal */
-    --color-muted: 220 9% 46%;          /* Muted gray */
-    --color-accent: 45 100% 50%;        /* Gold accent */
-    --color-border: 220 13% 91%;        /* Light border */
-    --color-success: 142 71% 45%;       /* Success green */
-    --color-warning: 38 92% 50%;        /* Warning amber */
-
-    --luxury-gold: 45 93% 65%;
-    --luxury-charcoal: 220 15% 25%;
-    --luxury-navy: 210 50% 20%;
-    --luxury-cream: 45 30% 97%;
-    --luxury-silver: 210 10% 90%;
-
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
 
-    --border: 210 20% 92%;
-    --input: 210 20% 95%;
-    --ring: 45 93% 65%;
+    /* Real Estate Brand Colors */
+    --color-primary: 212 27% 19%;
+    --color-secondary: 213 27% 84%;
+    --color-accent: 39 88% 58%;
+    --color-surface: 0 0% 100%;
+    --color-text: 213 27% 14%;
+    --color-muted: 213 13% 52%;
+    --color-border: 213 27% 89%;
+    --color-success: 142 71% 45%;
+    --color-warning: 39 88% 58%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(var(--color-primary)), hsl(var(--color-accent)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--luxury-gold)), hsl(45 80% 70%));
-    --gradient-hero: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 20% 98%));
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--color-background)), hsl(var(--color-surface)));
-    
-    --shadow-luxury: 0 20px 40px -10px hsl(var(--luxury-charcoal) / 0.1);
-    --shadow-accent: 0 10px 30px -5px hsl(var(--luxury-gold) / 0.3);
-    --shadow-card: 0 4px 20px -2px hsl(220 15% 25% / 0.08);
-    --shadow-primary: 0 10px 25px -5px hsl(var(--color-primary) / 0.25);
-
-    --radius: 1rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Luxury Color Tokens */
+    --luxury-gold: 43 96% 56%;
+    --luxury-charcoal: 220 13% 18%;
+    --luxury-navy: 221 39% 11%;
+    --luxury-cream: 50 20% 95%;
+    --luxury-silver: 220 9% 46%;
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
-
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
-
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
 
@@ -127,407 +83,77 @@
   * {
     @apply border-border;
   }
-
   body {
-    @apply bg-background text-foreground font-sans;
-    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', system-ui, sans-serif;
   }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  
+  .font-spartan {
+    font-family: 'Spartan', system-ui, sans-serif;
   }
 }
 
-@layer components {
-  html {
-    scroll-behavior: smooth;
-  }
+@layer utilities {
   .luxury-gradient {
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, hsl(var(--luxury-gold)) 0%, hsl(var(--luxury-charcoal)) 100%);
   }
   
   .accent-gradient {
-    background: var(--gradient-accent);
+    background: linear-gradient(135deg, hsl(var(--luxury-gold)) 0%, hsl(var(--luxury-silver)) 100%);
   }
-  
-  .hero-gradient {
-    background: var(--gradient-hero);
-  }
-  
-  .card-gradient {
-    background: var(--gradient-card);
-  }
-  
+
   .shadow-luxury {
-    box-shadow: var(--shadow-luxury);
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
   }
-  
-  .shadow-accent {
-    box-shadow: var(--shadow-accent);
-  }
-  
+
   .shadow-card {
-    box-shadow: var(--shadow-card);
+    box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.1);
   }
-  
-  .animate-fade-in-up {
-    @apply opacity-0 translate-y-6;
-    animation: fadeInUp 0.6s ease-out forwards;
+
+  /* Custom CTA animations */
+  .pulse-glow {
+    animation: pulse-glow 2s infinite;
   }
-  
-  .animate-slide-in-right {
-    @apply opacity-0 translate-x-6;
-    animation: slideInRight 0.6s ease-out forwards;
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(239, 68, 68, 0.8), 0 0 40px rgba(239, 68, 68, 0.6);
+    }
   }
-  
-  .animate-scale-in {
-    @apply opacity-0 scale-95;
-    animation: scaleIn 0.5s ease-out forwards;
-  }
-  
+
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
-  
-  .animate-slide-up {
-    @apply opacity-0 translate-y-12;
-    animation: slideUp 0.8s ease-out forwards;
-  }
-  
-  .animate-slide-in-left {
-    @apply opacity-0 -translate-x-12;
-    animation: slideInLeft 0.8s ease-out forwards;
-  }
-  
-  .animate-pulse-glow {
-    animation: pulseGlow 2s ease-in-out infinite;
-  }
-  
-  /* Scroll-triggered animations */
-  .scroll-animate {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .scroll-animate.animate {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .scroll-animate-left {
-    opacity: 0;
-    transform: translateX(-50px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .scroll-animate-left.animate {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  
-  .scroll-animate-right {
-    opacity: 0;
-    transform: translateX(50px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .scroll-animate-right.animate {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  
-  .scroll-animate-scale {
-    opacity: 0;
-    transform: scale(0.8);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .scroll-animate-scale.animate {
-    opacity: 1;
-    transform: scale(1);
-  }
-  
-  .stagger-delay-1 { transition-delay: 0.1s; }
-  .stagger-delay-2 { transition-delay: 0.2s; }
-  .stagger-delay-3 { transition-delay: 0.3s; }
-  .stagger-delay-4 { transition-delay: 0.4s; }
-  .stagger-delay-5 { transition-delay: 0.5s; }
-  .stagger-delay-6 { transition-delay: 0.6s; }
-}
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInRight {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes scaleIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInLeft {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(254, 215, 170, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(254, 215, 170, 0.6);
-  }
-}
-
-.luxury-parallax {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* Mobile-First Design System */
-@media (max-width: 768px) {
-  /* Prevent horizontal scrolling */
-  * {
-    max-width: 100vw;
-    box-sizing: border-box;
-  }
-  
-  html, body {
-    overflow-x: hidden;
-    width: 100%;
-  }
-  
-  .luxury-parallax {
-    background-attachment: scroll;
-  }
-  
-  /* Mobile Typography Foundation */
-  body {
-    font-size: 16px;
-    line-height: 1.6;
-    padding-bottom: 140px; /* Space for vertical CTA buttons */
-  }
-  
-  /* Ensure all text meets minimum size requirements */
-  * {
-    font-size: max(16px, 1em);
-  }
-  
-  h1 {
-    font-size: clamp(2rem, 8vw, 3rem) !important;
-    line-height: 1.2 !important;
-    margin-bottom: 1rem !important;
-  }
-  
-  h2 {
-    font-size: clamp(1.5rem, 6vw, 2rem) !important;
-    line-height: 1.3 !important;
-    margin-bottom: 0.75rem !important;
-  }
-  
-  h3 {
-    font-size: clamp(1.25rem, 5vw, 1.5rem) !important;
-    line-height: 1.4 !important;
-    margin-bottom: 0.5rem !important;
-  }
-  
-  h4 {
-    font-size: 1.125rem !important;
-    line-height: 1.4 !important;
-  }
-  
-  p {
-    font-size: 16px !important;
-    line-height: 1.6 !important;
-  }
-  
-  /* Mobile Container System */
-  .container {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-    max-width: 100vw !important;
-    overflow-x: hidden;
-  }
-  
-  /* Mobile Section Spacing */
-  .py-16 {
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
-  }
-  
-  .py-12 {
-    padding-top: 2.5rem !important;
-    padding-bottom: 2.5rem !important;
-  }
-  
-  .py-8 {
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
-  }
-  
-  /* Mobile Card and Grid System */
-  .grid-cols-2 {
-    gap: 1rem !important;
-  }
-  
-  .grid-cols-2 > * {
-    min-height: 140px !important;
-    padding: 1rem !important;
-  }
-  
-  /* Mobile Button System */
-  .text-xs {
-    font-size: 16px !important;
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
   }
 
-  .text-sm {
-    font-size: 18px !important;
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-out;
   }
-  
-  .text-base {
-    font-size: 20px !important;
-  }
-  
-  .h-10 {
-    height: 48px !important;
-  }
-  
-  .h-11 {
-    height: 52px !important;
-  }
-  
-  .h-12 {
-    height: 56px !important;
-  }
-  
-  /* Touch Target Minimum Sizes */
-  button, .cursor-pointer, [role="button"], [data-state] {
-    min-height: 48px;
-    min-width: 48px;
-    touch-action: manipulation;
-  }
-  
-  /* Improve touch feedback */
-  button:active, .cursor-pointer:active, [role="button"]:active {
-    transform: scale(0.95);
-    transition: transform 0.1s ease;
-  }
-  
-  /* Mobile Animations - Reduced for Performance */
-  .animate-float {
-    animation: floatMobile 2s ease-in-out infinite;
-  }
-  
-  .scroll-animate,
-  .scroll-animate-left,
-  .scroll-animate-right,
-  .scroll-animate-scale {
-    transition-duration: 0.5s;
-  }
-  
-  .scroll-animate {
-    transform: translateY(15px);
-  }
-  
-  .scroll-animate-left {
-    transform: translateX(-20px);
-  }
-  
-  .scroll-animate-right {
-    transform: translateX(20px);
-  }
-  
-  .scroll-animate-scale {
-    transform: scale(0.95);
-  }
-  
-  /* Mobile-Specific Spacing Utilities */
-  .mb-2 {
-    margin-bottom: 0.75rem !important;
-  }
-  
-  .mb-3 {
-    margin-bottom: 1rem !important;
-  }
-  
-  .mb-4 {
-    margin-bottom: 1.25rem !important;
-  }
-  
-  .mb-6 {
-    margin-bottom: 1.5rem !important;
-  }
-  
-  .mb-8 {
-    margin-bottom: 2rem !important;
-  }
-  
-  .mb-12 {
-    margin-bottom: 2.5rem !important;
-  }
-  
-  /* Mobile-optimized animations */
-  @keyframes floatMobile {
-    0%, 100% {
-      transform: translateY(0px);
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
     }
-    50% {
-      transform: translateY(-5px);
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
-  
-  /* Reduce motion for users who prefer it */
-  @media (prefers-reduced-motion: reduce) {
-    .animate-float,
-    .animate-pulse,
-    .animate-bounce {
-      animation: none;
-    }
-    
-    .scroll-animate,
-    .scroll-animate-left,
-    .scroll-animate-right,
-    .scroll-animate-scale {
-      transition: opacity 0.3s ease;
-      transform: none;
-    }
-  }
-}
 
-@media (min-width: 768px) {
-  body {
-    padding-bottom: 0;
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 }

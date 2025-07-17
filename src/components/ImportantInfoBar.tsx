@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { MapPin, Home, IndianRupee, Calendar } from 'lucide-react';
 
@@ -54,7 +55,9 @@ const ImportantInfoBar = ({ onCTAClick }: ImportantInfoBarProps) => {
           {/* CTA Button */}
           <Button
             onClick={onCTAClick}
-            className="bg-brand-primary hover:bg-brand-primary/90 text-white font-semibold px-6 py-2 rounded-lg transition-all duration-300 hover:scale-105 whitespace-nowrap"
+            variant="redGradient"
+            size="xl"
+            className="whitespace-nowrap pulse-glow"
           >
             Get Price Breakdown
           </Button>

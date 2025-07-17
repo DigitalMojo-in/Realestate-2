@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Download, Phone, MessageCircle, X, Menu } from 'lucide-react';
@@ -25,29 +26,35 @@ const StickyFAB = ({ onLeadFormOpen }: StickyFABProps) => {
         <div className="relative">
           {/* Expanded Menu */}
           {isExpanded && (
-            <div className="absolute bottom-16 right-0 space-y-3 animate-fade-in">
+            <div className="absolute bottom-20 right-0 space-y-4 animate-fade-in">
               <Button
                 onClick={onLeadFormOpen}
-                className="w-14 h-14 rounded-full bg-brand-primary hover:bg-brand-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 group"
+                variant="redGradient"
+                size="iconXl"
+                className="rounded-full shadow-2xl group"
                 title="Download Brochure"
               >
-                <Download className="w-5 h-5 group-hover:animate-bounce" />
+                <Download className="w-6 h-6 group-hover:animate-bounce" />
               </Button>
               
               <Button
                 onClick={handleCall}
-                className="w-14 h-14 rounded-full bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 group"
+                variant="redCta"
+                size="iconXl"
+                className="rounded-full bg-green-600 hover:bg-green-700 shadow-2xl group"
                 title="Call Now"
               >
-                <Phone className="w-5 h-5 group-hover:animate-pulse" />
+                <Phone className="w-6 h-6 group-hover:animate-pulse" />
               </Button>
               
               <Button
                 onClick={handleWhatsApp}
-                className="w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 group"
+                variant="redCta"
+                size="iconXl"
+                className="rounded-full bg-green-500 hover:bg-green-600 shadow-2xl group"
                 title="WhatsApp"
               >
-                <MessageCircle className="w-5 h-5 group-hover:animate-bounce" />
+                <MessageCircle className="w-6 h-6 group-hover:animate-bounce" />
               </Button>
             </div>
           )}
@@ -55,16 +62,18 @@ const StickyFAB = ({ onLeadFormOpen }: StickyFABProps) => {
           {/* Main FAB Button */}
           <Button
             onClick={() => setIsExpanded(!isExpanded)}
-            className={`w-16 h-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ${
+            variant="redGradient"
+            size="iconXl"
+            className={`rounded-full shadow-2xl transition-all duration-300 ${
               isExpanded 
                 ? 'bg-red-500 hover:bg-red-600 rotate-45' 
-                : 'bg-brand-primary hover:bg-brand-primary/90 hover:scale-110'
-            } text-white`}
+                : 'hover:scale-110'
+            }`}
           >
             {isExpanded ? (
-              <X className="w-6 h-6" />
+              <X className="w-8 h-8" />
             ) : (
-              <Menu className="w-6 h-6" />
+              <Menu className="w-8 h-8 animate-pulse" />
             )}
           </Button>
         </div>
@@ -74,10 +83,12 @@ const StickyFAB = ({ onLeadFormOpen }: StickyFABProps) => {
       <div className="hidden lg:block fixed left-6 bottom-6 z-50">
         <Button
           onClick={onLeadFormOpen}
-          className="bg-brand-accent hover:bg-brand-accent/90 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+          variant="redGradient"
+          size="xl"
+          className="rounded-full shadow-2xl group pulse-glow"
         >
-          <Download className="w-4 h-4 mr-2 group-hover:animate-bounce" />
-          <span className="font-semibold">Download Brochure</span>
+          <Download className="w-5 h-5 mr-2 group-hover:animate-bounce" />
+          <span className="font-bold">Download Brochure</span>
         </Button>
       </div>
     </>

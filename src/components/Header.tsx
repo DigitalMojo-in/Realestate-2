@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Download, Phone } from 'lucide-react';
@@ -52,18 +53,18 @@ const Header = ({ onLeadFormOpen }: HeaderProps) => {
         {/* CTA Buttons */}
         <div className="hidden lg:flex items-center space-x-3">
           <Button
-            variant="outline"
-            size="sm"
-            className="text-sm font-medium border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all duration-300 group"
+            variant="redGradient"
+            size="lg"
+            className="text-sm font-bold group"
             onClick={onLeadFormOpen}
           >
             <Download className="w-4 h-4 mr-2 animate-pulse group-hover:animate-bounce" />
             Brochure
           </Button>
           <Button
-            variant="ghost"
-            size="sm"
-            className="text-sm font-semibold bg-yellow-400 hover:bg-yellow-300 text-black transition-all duration-300 group"
+            variant="redCta"
+            size="lg"
+            className="text-sm font-bold group"
             onClick={() => window.open('tel:7331166997', '_self')}
           >
             <Phone className="w-4 h-4 mr-2 group-hover:animate-pulse" />
@@ -87,9 +88,9 @@ const Header = ({ onLeadFormOpen }: HeaderProps) => {
           ))}
           <div className="pt-3 space-y-2">
             <Button
-              variant="outline"
-              size="sm"
-              className="w-full text-sm border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all duration-300 group"
+              variant="redGradient"
+              size="lg"
+              className="w-full text-sm font-bold group"
               onClick={() => {
                 onLeadFormOpen();
                 setMenuOpen(false);
@@ -99,9 +100,9 @@ const Header = ({ onLeadFormOpen }: HeaderProps) => {
               Brochure
             </Button>
             <Button
-              variant="ghost"
-              size="sm"
-              className="w-full text-sm bg-yellow-400 hover:bg-yellow-300 text-black transition-all duration-300 group"
+              variant="redCta"
+              size="lg"
+              className="w-full text-sm font-bold group"
               onClick={() => {
                 window.open('tel:7331166997', '_self');
                 setMenuOpen(false);

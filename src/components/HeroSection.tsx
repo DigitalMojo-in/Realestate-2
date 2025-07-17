@@ -1,16 +1,21 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import hero1 from '@/assets/hero-1.jpg';
-import hero2 from '@/assets/hero-2.jpg';
-import hero3 from '@/assets/hero-3.jpg';
+import { Download, Phone } from 'lucide-react';
 
 interface HeroSectionProps {
   onLeadFormOpen: () => void;
 }
 
 const HeroSection = ({ onLeadFormOpen }: HeroSectionProps) => {
-  const images = [hero1, hero2, hero3];
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Using placeholder images for better visual appeal
+  const images = [
+    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+    'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80'
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -32,15 +37,15 @@ const HeroSection = ({ onLeadFormOpen }: HeroSectionProps) => {
           >
             <img
               src={image}
-              alt={`USP Slide ${index + 1}`}
-              className="w-full h-full object-cover object-center sm:object-cover"
+              alt={`Luxury Apartment ${index + 1}`}
+              className="w-full h-full object-cover object-center"
             />
           </div>
         ))}
       </div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30 z-10" />
+      <div className="absolute inset-0 bg-black/40 z-10" />
 
       {/* Slide Indicators */}
       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
@@ -49,7 +54,7 @@ const HeroSection = ({ onLeadFormOpen }: HeroSectionProps) => {
             key={index}
             onClick={() => setCurrentSlide(index)}
             className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide ? 'bg-yellow-400' : 'bg-white/50 hover:bg-white'
+              index === currentSlide ? 'bg-red-500' : 'bg-white/50 hover:bg-white'
             }`}
           />
         ))}
@@ -60,22 +65,28 @@ const HeroSection = ({ onLeadFormOpen }: HeroSectionProps) => {
         <div className="text-center text-white px-4 max-w-xl mx-auto animate-fade-in-up">
           <h1 className="font-spartan text-2xl sm:text-4xl font-bold mb-2 sm:mb-4 leading-tight">
             Unlock Premium Living<br />
-            <span className="text-yellow-400">Every Day</span>
+            <span className="text-red-400">Every Day</span>
           </h1>
           <p className="text-xs sm:text-base mb-4 opacity-90 font-light">
             Smart Design | Prime Location | Secure Community
           </p>
-          <div className="flex flex-col sm:flex-row gap-2 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button
               onClick={onLeadFormOpen}
-              className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 text-xs sm:text-sm rounded-md"
+              variant="redGradient"
+              size="xl"
+              className="group"
             >
+              <Phone className="w-5 h-5 mr-2 animate-bounce" />
               Book Site Visit
             </Button>
             <Button
               onClick={onLeadFormOpen}
-              className="bg-white text-black px-4 py-2 text-xs sm:text-sm rounded-md border border-white"
+              variant="redCta"
+              size="xl"
+              className="group"
             >
+              <Download className="w-5 h-5 mr-2 animate-pulse" />
               Download Brochure
             </Button>
           </div>
