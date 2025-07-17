@@ -130,7 +130,7 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
           </div>
 
           {/* Floor Plans */}
-          <div className="w-full lg:w-1/2">
+          {/* <div className="w-full lg:w-1/2">
             <h3 className="text-xl font-semibold mb-4">Floor Plans</h3>
             <Tabs defaultValue="2bhk">
               <TabsList className="flex gap-2 bg-gray-100 p-1 rounded-md mb-4">
@@ -163,7 +163,7 @@ const Gallery = ({ onLeadFormOpen }: GalleryProps) => {
                 </TabsContent>
               ))}
             </Tabs>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
