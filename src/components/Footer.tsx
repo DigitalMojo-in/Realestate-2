@@ -1,6 +1,5 @@
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Youtube, Linkedin } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 interface FooterProps {
   onLeadFormOpen: () => void;
@@ -8,163 +7,161 @@ interface FooterProps {
 
 const Footer = ({ onLeadFormOpen }: FooterProps) => {
   return (
-    <footer className="bg-luxury-charcoal text-white py-16">
-      <div className="container mx-auto px-4">
-        {/* Main Footer Content */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+    <footer className="bg-brand-text text-white">
+      {/* Main Footer Content */}
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold mb-4">Prestige Luxury Residences</h3>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              Experience luxury living at its finest with world-class amenities, 
+              strategic location, and uncompromising quality construction.
+            </p>
+            <div className="flex space-x-2">
+              <Button 
+                onClick={onLeadFormOpen}
+                variant="cta" 
+                size="sm"
+                className="text-xs"
+              >
+                Enquire Now
+              </Button>
+            </div>
+          </div>
+
           {/* Contact Information */}
-          <div>
-            <h3 className="font-montserrat text-xl font-bold mb-6">Contact Information</h3>
-            <div className="space-y-4">
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold mb-4">Contact Information</h4>
+            <div className="space-y-3">
               <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-luxury-gold mt-1 flex-shrink-0" />
+                <Phone className="w-4 h-4 text-brand-primary mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-sm">Sales Office:</p>
-                  <p className="text-white/80 text-sm">
-                    123 Premium Plaza, Bannerghatta Road,<br />
-                    Bangalore - 560076
-                  </p>
+                  <p className="text-sm font-medium">Sales Hotline</p>
+                  <a href="tel:+919876543210" className="text-gray-300 text-sm hover:text-white">
+                    +91 98765 43210
+                  </a>
                 </div>
               </div>
               
-              <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-luxury-gold" />
+              <div className="flex items-start space-x-3">
+                <Mail className="w-4 h-4 text-brand-primary mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-sm">Call Now</p>
-                  <p className="text-white/80 text-sm">+91 98765 43210</p>
+                  <p className="text-sm font-medium">Email</p>
+                  <a href="mailto:sales@prestigeluxury.com" className="text-gray-300 text-sm hover:text-white">
+                    sales@prestigeluxury.com
+                  </a>
                 </div>
               </div>
-              
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-luxury-gold" />
+
+              <div className="flex items-start space-x-3">
+                <Clock className="w-4 h-4 text-brand-primary mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-sm">Email</p>
-                  <p className="text-white/80 text-sm">info@luxuryapartments.com</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center space-x-3">
-                <Clock className="w-5 h-5 text-luxury-gold" />
-                <div>
-                  <p className="text-sm">Sales Timings</p>
-                  <p className="text-white/80 text-sm">Mon - Sun: 9:00 AM - 7:00 PM</p>
+                  <p className="text-sm font-medium">Site Visit Hours</p>
+                  <p className="text-gray-300 text-sm">Mon - Sun: 9:00 AM - 7:00 PM</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Quick Actions */}
-          <div>
-            <h3 className="font-montserrat text-xl font-bold mb-6">Quick Actions</h3>
-            <div className="space-y-3">
+          {/* Project Location */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold mb-4">Project Location</h4>
+            <div className="flex items-start space-x-3">
+              <MapPin className="w-4 h-4 text-brand-primary mt-1 flex-shrink-0" />
+              <div>
+                <p className="text-sm font-medium">Site Address</p>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Electronic City Phase 2,<br />
+                  Bangalore - 560100,<br />
+                  Karnataka, India
+                </p>
+              </div>
+            </div>
+            
+            <div className="pt-2">
               <Button 
                 variant="outline" 
-                size="sm"
-                onClick={onLeadFormOpen}
-                className="w-full justify-start text-white bg-white/5 hover:bg-white/15 border border-white/20 rounded-lg transition-colors duration-200"
+                size="sm" 
+                className="text-xs border-gray-600 text-gray-300 hover:bg-white hover:text-brand-text"
               >
-                Book Site Visit
+                Get Directions
               </Button>
-              <Button 
-                variant="outline" 
-                size="sm"
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <div className="space-y-2">
+              <a href="#overview" className="block text-gray-300 text-sm hover:text-white transition-colors">
+                Project Overview
+              </a>
+              <a href="#amenities" className="block text-gray-300 text-sm hover:text-white transition-colors">
+                Amenities
+              </a>
+              <a href="#gallery" className="block text-gray-300 text-sm hover:text-white transition-colors">
+                Gallery
+              </a>
+              <a href="#location" className="block text-gray-300 text-sm hover:text-white transition-colors">
+                Location
+              </a>
+              <a href="#specifications" className="block text-gray-300 text-sm hover:text-white transition-colors">
+                Specifications
+              </a>
+              <button 
                 onClick={onLeadFormOpen}
-                className="w-full justify-start text-white bg-white/5 hover:bg-white/15 border border-white/20 rounded-lg transition-colors duration-200"
+                className="block text-brand-primary text-sm hover:text-brand-accent transition-colors font-medium"
               >
                 Download Brochure
-              </Button>
-              <Button 
-                variant="outline" 
-                size="sm"
-                onClick={onLeadFormOpen}
-                className="w-full justify-start text-white bg-white/5 hover:bg-white/15 border border-white/20 rounded-lg transition-colors duration-200"
-              >
-                Get Floor Plans
-              </Button>
-              <Button 
-                variant="outline" 
-                size="sm"
-                onClick={onLeadFormOpen}
-                className="w-full justify-start text-white bg-white/5 hover:bg-white/15 border border-white/20 rounded-lg transition-colors duration-200"
-              >
-                Check Availability
-              </Button>
+              </button>
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* Project Highlights */}
-          <div>
-            <h3 className="font-montserrat text-xl font-bold mb-6">Why Choose Us</h3>
-            <div className="space-y-2 text-sm text-white/80">
-              <p>✓ RERA Approved Project</p>
-              <p>✓ On-Time Delivery Guaranteed</p>
-              <p>✓ Premium Location</p>
-              <p>✓ World-Class Amenities</p>
-              <p>✓ 25+ Years Experience</p>
-              <p>✓ 5000+ Happy Families</p>
-              <p>✓ Award-Winning Builder</p>
-            </div>
-          </div>
-
-          {/* Location Map */}
-          <div>
-            <h3 className="font-montserrat text-xl font-bold mb-6">Location</h3>
-            <Card className="p-4 bg-white/10 border-white/20">
-              <div className="aspect-video bg-luxury-navy/50 rounded-lg flex items-center justify-center mb-4">
-                <MapPin className="w-8 h-8 text-luxury-gold" />
-              </div>
-              <p className="text-sm text-white/80 mb-3">
-                Bannerghatta Road, Near Electronic City
+      {/* Bottom Bar */}
+      <div className="border-t border-gray-700">
+        <div className="container mx-auto px-4 py-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+            {/* Legal & Compliance */}
+            <div className="text-center md:text-left">
+              <p className="text-xs text-gray-400 mb-2">
+                RERA Registration: PRM/KA/RERA/1251/446/PR/171101/001908
               </p>
-              <Button 
-                variant="gold" 
-                size="sm" 
-                className="w-full"
-                onClick={() => window.open('https://maps.google.com', '_blank')}
-              >
-                View on Google Maps
-              </Button>
-            </Card>
-          </div>
-        </div>
-
-        {/* Social Media & RERA */}
-        <div className="border-t border-white/20 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            {/* Social Media */}
-            <div className="flex items-center space-x-4">
-              <p className="text-sm text-white/80">Follow Us:</p>
-              <div className="flex space-x-3">
-                <a href="#" className="text-white/60 hover:text-luxury-gold transition-colors">
-                  <Facebook className="w-5 h-5" />
+              <div className="flex flex-wrap justify-center md:justify-start space-x-4 text-xs text-gray-400">
+                <a href="/privacy-policy" className="hover:text-white transition-colors">
+                  Privacy Policy
                 </a>
-                <a href="#" className="text-white/60 hover:text-luxury-gold transition-colors">
-                  <Instagram className="w-5 h-5" />
+                <a href="/terms-conditions" className="hover:text-white transition-colors">
+                  Terms & Conditions
                 </a>
-                <a href="#" className="text-white/60 hover:text-luxury-gold transition-colors">
-                  <Youtube className="w-5 h-5" />
-                </a>
-                <a href="#" className="text-white/60 hover:text-luxury-gold transition-colors">
-                  <Linkedin className="w-5 h-5" />
+                <a href="/rera-documents" className="hover:text-white transition-colors">
+                  RERA Documents
                 </a>
               </div>
             </div>
 
-            {/* RERA Information */}
+            {/* Copyright */}
             <div className="text-center md:text-right">
-              <p className="text-sm text-white/80">RERA Registration No: AP-RERA-12345</p>
-              <p className="text-xs text-white/60">All information is subject to RERA guidelines</p>
+              <p className="text-xs text-gray-400">
+                © 2024 Prestige Group. All rights reserved.
+              </p>
+              <p className="text-xs text-gray-500 mt-1">
+                Marketing Partner: PropertyConnect Solutions
+              </p>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Copyright */}
-        <div className="border-t border-white/20 mt-8 pt-6 text-center">
-          <p className="text-sm text-white/60">
-            © 2024 Premium Developers. All rights reserved. | 
-            <a href="#" className="hover:text-luxury-gold transition-colors"> Privacy Policy</a> | 
-            <a href="#" className="hover:text-luxury-gold transition-colors"> Terms & Conditions</a> |
-            <a href="#" className="hover:text-luxury-gold transition-colors"> Disclaimer</a>
+      {/* Disclaimer */}
+      <div className="bg-gray-900 py-3">
+        <div className="container mx-auto px-4">
+          <p className="text-xs text-gray-500 text-center leading-relaxed">
+            Disclaimer: All images, layouts, and promotional materials are artistic representations and may differ from actual construction. 
+            Specifications, amenities, and features are subject to change without notice. Please verify all details with our sales team 
+            before making any investment decisions. This is not an offer to sell or solicitation to buy real estate.
           </p>
         </div>
       </div>

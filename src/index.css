@@ -29,6 +29,18 @@
     --accent: 45 93% 65%;
     --accent-foreground: 220 15% 25%;
 
+    /* Real Estate Brand Color Tokens */
+    --color-primary: 25 95% 53%;        /* Orange #eb7311 */
+    --color-secondary: 200 95% 40%;     /* Blue accent */
+    --color-background: 0 0% 98%;       /* Off-white */
+    --color-surface: 0 0% 100%;         /* Pure white */
+    --color-text: 220 13% 18%;          /* Dark charcoal */
+    --color-muted: 220 9% 46%;          /* Muted gray */
+    --color-accent: 45 100% 50%;        /* Gold accent */
+    --color-border: 220 13% 91%;        /* Light border */
+    --color-success: 142 71% 45%;       /* Success green */
+    --color-warning: 38 92% 50%;        /* Warning amber */
+
     --luxury-gold: 45 93% 65%;
     --luxury-charcoal: 220 15% 25%;
     --luxury-navy: 210 50% 20%;
@@ -42,14 +54,16 @@
     --input: 210 20% 95%;
     --ring: 45 93% 65%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(var(--luxury-charcoal)), hsl(var(--luxury-navy)));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--color-primary)), hsl(var(--color-accent)));
     --gradient-accent: linear-gradient(135deg, hsl(var(--luxury-gold)), hsl(45 80% 70%));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--luxury-charcoal) / 0.8), hsl(var(--luxury-navy) / 0.6));
+    --gradient-hero: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 20% 98%));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--color-background)), hsl(var(--color-surface)));
     
     --shadow-luxury: 0 20px 40px -10px hsl(var(--luxury-charcoal) / 0.1);
     --shadow-accent: 0 10px 30px -5px hsl(var(--luxury-gold) / 0.3);
     --shadow-card: 0 4px 20px -2px hsl(220 15% 25% / 0.08);
+    --shadow-primary: 0 10px 25px -5px hsl(var(--color-primary) / 0.25);
 
     --radius: 1rem;
 

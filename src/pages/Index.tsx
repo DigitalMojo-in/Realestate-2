@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import Header from '@/components/Header';
-import HeroSection from '@/components/HeroSection';
+import SlidingBanner from '@/components/SlidingBanner';
+import ImportantInfoBar from '@/components/ImportantInfoBar';
+import OpenForm from '@/components/OpenForm';
+import USPSection from '@/components/USPSection';
+import AmenitiesSection from '@/components/AmenitiesSection';
+import StickyBottomCTA from '@/components/StickyBottomCTA';
 import LeadForm from '@/components/LeadForm';
 import ProjectOverview from '@/components/ProjectOverview';
 import ProjectHighlights from '@/components/ProjectHighlights';
@@ -22,47 +27,62 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Premium Header */}
+      {/* Premium Header with sticky navigation */}
       <Header onLeadFormOpen={openLeadForm} />
       
-      {/* Hero Section with Image Slider */}
-      <HeroSection onLeadFormOpen={openLeadForm} />
+      {/* Above-the-Fold Section */}
+      {/* Sliding Banner with landscape creatives */}
+      <SlidingBanner onCTAClick={openLeadForm} />
       
-      {/* Instant Lead Form - Above the fold */}
-      <LeadForm variant="inline" />
+      {/* Important Info Bar - Sticky below header */}
+      <ImportantInfoBar onCTAClick={openLeadForm} />
       
-      {/* Project Overview - Like the reference */}
+      {/* Open Form - Visible without scroll */}
+      <OpenForm variant="inline" />
+      
+      {/* Core Content Blocks */}
+      {/* Project Overview with inline blocks */}
       <ProjectOverview onLeadFormOpen={openLeadForm} />
+      
+      {/* USP Section - Bullet list of advantages */}
+      <USPSection onCTAClick={openLeadForm} />
+      
+      {/* Amenities split by type */}
+      <AmenitiesSection onCTAClick={openLeadForm} />
       
       {/* Project Highlights Grid */}
       <ProjectHighlights />
       
-      {/* Location Advantage with Map */}
-      <LocationAdvantage />
+      {/* Specifications in accordions */}
+      <SpecificationsSection />
       
-      {/* Gallery & Floor Plans */}
+      {/* Walk-through & Influencer Videos */}
+      <VideoSection />
+      
+      {/* Testimonials - Video + text slider */}
+      <Testimonials />
+      
+      {/* Gallery - Hi-res images carousel */}
       <Gallery onLeadFormOpen={openLeadForm} />
       
-      {/* Specifications Section */}
-      <SpecificationsSection />
+      {/* Location Proximity - Key landmarks */}
+      <LocationAdvantage />
       
       {/* Premium Showcase Section */}
       <PremiumShowcaseSection onLeadFormOpen={openLeadForm} />
       
-      {/* Video Walkthrough */}
-      <VideoSection />
-      
-      {/* Customer Testimonials */}
-      <Testimonials />
-      
-      {/* Why This Project / Builder Trust */}
+      {/* About the Developer - Brief profile */}
       <WhyThisProject />
       
-      {/* Footer with Contact Info */}
+      {/* Footer with Contact Info & Compliance */}
       <Footer onLeadFormOpen={openLeadForm} />
       
-      {/* Sticky Floating CTAs */}
+      {/* Conversion Devices & Sticky Elements */}
+      {/* Desktop Sticky FAB */}
       <StickyFAB onLeadFormOpen={openLeadForm} />
+      
+      {/* Mobile Bottom Sticky Bar */}
+      <StickyBottomCTA onLeadFormOpen={openLeadForm} />
       
       {/* Lead Form Modal */}
       <LeadForm 
