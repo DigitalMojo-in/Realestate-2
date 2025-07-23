@@ -628,7 +628,7 @@ export default function RealattePerformance() {
       </h2>
     </div>
 
-    <div className="sm:ml-[250px] grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+    <div className=" grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
       {/* LEFT COLUMN */}
       <div className="space-y-6">
         <div className="flex items-start space-x-3 slide-in-left">
