@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -19,8 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'poppins': ['Poppins', 'system-ui', 'sans-serif'],
-				'montserrat': ['Montserrat', 'system-ui', 'sans-serif'],
+				'sans': ['League Spartan', 'sans-serif'],
+				'spartan': ['League Spartan', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -56,25 +57,6 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				luxury: {
-					gold: 'hsl(var(--luxury-gold))',
-					charcoal: 'hsl(var(--luxury-charcoal))',
-					navy: 'hsl(var(--luxury-navy))',
-					cream: 'hsl(var(--luxury-cream))',
-					silver: 'hsl(var(--luxury-silver))',
-				},
-				// Real Estate Brand Colors
-				brand: {
-					primary: 'hsl(var(--color-primary))',
-					secondary: 'hsl(var(--color-secondary))',
-					accent: 'hsl(var(--color-accent))',
-					surface: 'hsl(var(--color-surface))',
-					text: 'hsl(var(--color-text))',
-					muted: 'hsl(var(--color-muted))',
-					border: 'hsl(var(--color-border))',
-					success: 'hsl(var(--color-success))',
-					warning: 'hsl(var(--color-warning))',
-				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -92,6 +74,18 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
+				scroll: {
+					'0%': { transform: 'translateX(0%)' },
+					'100%': { transform: 'translateX(-50%)' },
+				},
+				'infinite-scroll': {
+					'0%': { transform: 'translateX(0%)' },
+					'100%': { transform: 'translateX(-100%)' },
+				},
+				'infinite-scroll-reverse': {
+					'0%': { transform: 'translateX(-100%)' },
+					'100%': { transform: 'translateX(0%)' },
+				},
 				'accordion-down': {
 					from: {
 						height: '0'
@@ -111,7 +105,10 @@ export default {
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'scroll-slow': 'scroll 60s linear infinite',
+				'infinite-scroll': 'infinite-scroll 30s linear infinite',
+				'infinite-scroll-reverse': 'infinite-scroll-reverse 30s linear infinite',
 			}
 		}
 	},

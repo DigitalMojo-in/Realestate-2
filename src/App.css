@@ -40,6 +40,6 @@
 .read-the-docs {
   color: #888;
 }
-html {
-  scroll-behavior: smooth;
+.animate-scroll-slow {
+  animation: scroll-slow 60s linear infinite;
 }
